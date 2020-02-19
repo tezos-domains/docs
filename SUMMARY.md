@@ -1,4 +1,4 @@
 # Table of contents
 
-* [tnsdomains/docs](README.md)
+* [Tezos Name Service](README.md)
 

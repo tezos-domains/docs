@@ -1,4 +1,4 @@
-# tnsdomains/docs
+# Tezos Name Service
 
 TNS is the Tezos Name Service, a distributed, open, and extensible naming system based on the Tezos blockchain.
 
