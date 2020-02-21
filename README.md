@@ -4,7 +4,7 @@ _This is an early alpha version of the draft._
 
 TNS is the Tezos Name Service, a distributed, open, and extensible naming system based on the Tezos blockchain.
 
-TNS’s job is to map human-readable names like ‘alice.xtz’ to machine-readable identifiers such as Tezos addresses, content hashes, and metadata. TNS also supports ‘reverse resolution’, making it possible to associate metadata such as canonical names or interface descriptions with Tezos addresses.
+TNS’s job is to map human-readable names like ‘alice.xtz’ to machine-readable identifiers such as Tezos addresses, content hashes, and metadata. TNS will also supports ‘reverse resolution’, making it possible to associate metadata such as canonical names or interface descriptions with Tezos addresses.
 
 TNS has similar goals to DNS, the Internet’s Domain Name Service, but has significantly different architecture, due to the capabilities and constraints provided by the Tezos blockchain. Like DNS, TNS operates on a system of dot-separated hierarchical names called domains, with the owner of a domain having full control over subdomains.
 
