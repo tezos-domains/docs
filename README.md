@@ -1,6 +1,6 @@
 # Tezos Name Service
 
-You read our post series on Designing a Name Service on [Medium ](https://medium.com/tezos-name-service)or discuss with us on Tezos Agora 
+You can read our post series on Designing a Name Service on [Medium ](https://medium.com/tezos-name-service)or discuss with us on Tezos Agora 
 
 1. Part I: Introduction [https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874](https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874)
 2. Part II: Namespace and Structure  [https://forum.tezosagora.org/t/designing-a-name-service-part-2-namespace-and-structure/1901](https://forum.tezosagora.org/t/designing-a-name-service-part-2-namespace-and-structure/1901)
