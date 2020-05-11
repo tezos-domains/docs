@@ -1,7 +1,5 @@
 # Tezos Name Service
 
-_This is an early alpha version of the draft._
-
 You read our post series on Designing a Name Service on [Medium ](https://medium.com/tezos-name-service)or discuss with us on Tezos Agora 
 
 1. Part I: Introduction [https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874](https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874)
