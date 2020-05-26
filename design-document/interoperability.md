@@ -16,7 +16,7 @@ Addresses are represented as a `map` containing at least the following key-value
 
 Off-chain clients retrieve the individual addresses directly from the contract's storage. The `Discovery` contract contains the following storage structure:
 
-SmartPy:
+**SmartPy:**
 
 ```python
 sp.TRecord(
@@ -26,7 +26,7 @@ sp.TRecord(
 )
 ```
 
-Michelson:
+**Michelson:**
 
 ```text
 storage (pair
@@ -43,7 +43,7 @@ _Note: Clients **must not** rely on the ordering of the top-level nested pairs. 
 
 Contracts can use the `get_addresses` entry-point to get all known smart contract addresses via a callback.
 
-SmartPy:
+**SmartPy:**
 
 ```python
 # Gets all known addresses
@@ -53,7 +53,7 @@ def get_addresses(self, callback):
     # ...
 ```
 
-Michelson:
+**Michelson:**
 
 ```text
 parameter (or 
@@ -70,7 +70,7 @@ Forward name resolution is done using the `NameRegistry` contract. After retriev
 
 Off-chain clients resolve names using the contract's storage directly. The `NameRegistry` contract uses the following structure:
 
-SmartPy:
+**SmartPy:**
 
 ```python
 sp.TRecord(
@@ -88,7 +88,7 @@ sp.TRecord(
 )
 ```
 
-Michelson:
+**Michelson:**
 
 ```text
 storage (pair
@@ -117,13 +117,17 @@ storage (pair
 
 _Note: Clients **must not** rely on the ordering of the top-level nested pairs. They should always use annotations to find the correct value._
 
-The resolution algorithm is as follows: 1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization]() for more details. 1. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable. 1. Extract the optional `address` value. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
+The resolution algorithm is as follows:
+
+1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization ](interoperability.md#name-validation-and-normalization)for more details.
+2. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable.
+3. Extract the optional `address` value. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
 
 ### Instructions for Contracts
 
 Contracts can use the `resolve` entry-point and get the resolved address via a callback.
 
-SmartPy:
+**SmartPy:**
 
 ```python
 # Resolves a given name
@@ -134,7 +138,7 @@ def resolve(self, params):
     # ...
 ```
 
-Michelson:
+**Michelson:**
 
 ```text
 parameter (or
@@ -153,7 +157,7 @@ Reverse resolution is done using the `ReverseRegistry` contract. After retrievin
 
 Off-chain clients resolve names using the contract's storage directly. The `ReverseRegistry` contract uses the following structure:
 
-SmartPy:
+**SmartPy:**
 
 ```python
 sp.TRecord(
@@ -172,13 +176,17 @@ sp.TRecord(
 
 _Note: Clients **must not** rely on the ordering of the top-level nested pairs. They should always use annotations to find the correct value._
 
-The resolution algorithm is as follows: 1. Look up the address in the `records` bigmap. If the bigmap contains no such key, the given address is not resolvable. 1. Extract the optional `name` value. If the optional value is `None`, the given address is not resolvable. 1. Decode the name from UTF-8 `bytes`. 1. Use the decode algorithm explained in [Name Validation and Normalization]().
+The resolution algorithm is as follows:
+
+1. Look up the address in the `records` bigmap. If the bigmap contains no such key, the given address is not resolvable.
+2. Extract the optional `name` value. If the optional value is `None`, the given address is not resolvable.
+3. Use the decode algorithm explained in [Name Validation and Normalization ](interoperability.md#name-validation-and-normalization)to get the final name.
 
 ### Instructions for Contracts
 
 Contracts can use the `resolve` entry-point and get the resolved address via a callback.
 
-SmartPy:
+**SmartPy:**
 
 ```python
 # Resolves a given name
