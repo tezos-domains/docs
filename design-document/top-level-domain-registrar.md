@@ -10,7 +10,7 @@ To conduct Vickrey auction so that bids are truly sealed, several phases take pl
 
 1. In the **bidding phase**, bidders submit hashes of their bids and transfer funds that are held until the auction ends. Bidders can also choose to submit fake bids to make their real bids more difficult to guess.
 2. In the **reveal phase**, bidders reveal what bids they made and which of them were fake. Every bid that pairs with a corresponding hash is accepted. Funds held for bids that are fake or lower than the current highest bid are immediately available for refund.
-3. In the **settlement phase**, a participant \(typically the highest bidder\) invokes the settlement process, which transfers the domain to the highest bidder. The settlement phase does not have a limit, but the time spent in the settlement phase counts towards the domain's registration period \(users can't block the domain for longer by not invoking the settlement process\).
+3. In the **settlement phase**, a participant \(typically the highest bidder\) invokes the settlement process, which transfers the domain to the highest bidder. The settlement phase does not have a limit, but the time spent in the settlement phase counts towards the domain's registration period \(users can't block the domain for longer by not invoking the settlement process\). Funds associated with bids that have not been revealed are refundable from the beginning of this phase.
 
 Special cases are handled as follows:
 
