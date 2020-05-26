@@ -117,7 +117,11 @@ storage (pair
 
 _Note: Clients **must not** rely on the ordering of the top-level nested pairs. They should always use annotations to find the correct value._
 
-The resolution algorithm is as follows: 1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](interoperability.md) for more details. 1. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable. 1. Extract the optional `address` value. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
+The resolution algorithm is as follows:
+
+1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](interoperability.md) for more details.
+2. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable.
+3. Extract the optional `address` value. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
 
 ### Instructions for Contracts
 
