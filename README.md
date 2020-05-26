@@ -2,7 +2,7 @@
 
 You can read our post series on Designing a Name Service on [Medium ](https://medium.com/tezos-name-service)or discuss with us on Tezos Agora
 
-* [Part 1: Introduction](%20https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874)
+* [Part 1: Introduction](https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874)
 * [Part 2: Namespace and Structure](https://forum.tezosagora.org/t/designing-a-name-service-part-2-namespace-and-structure/1901)
 * [Part 3: Name Distribution and Pricing](https://forum.tezosagora.org/t/designing-a-name-service-part-3-name-distribution-and-pricing/1914)
 * [Part 4: Validation, Normalization, Encoding](https://forum.tezosagora.org/t/designing-a-name-service-part-4-validation-normalization-encoding/1915)
