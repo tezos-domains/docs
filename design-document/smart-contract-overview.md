@@ -10,7 +10,7 @@ A proxy contract that exists solely for upgradeability. DApps, libraries, and ot
 * `NameRegistry`
 * `ReverseRegistry`
 
-The discovery process is further detailed in the interoperability chapter \(_TODO link_\).
+The discovery process is further detailed in the [Interoperability](interoperability.md) chapter.
 
 ## NameRegistry
 
@@ -29,7 +29,7 @@ The registry supports:
 
 ## LabelValidator
 
-This smart contract validates labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules. It provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the interoperability chapter \(_TODO link_\) for more information about normalization and validation.
+This smart contract validates labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules. It provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](interoperability.md) chapter for more information about normalization and validation.
 
 ## ReverseRegistry
 
@@ -48,5 +48,5 @@ The registry supports:
 
 ## TLDRegistrar
 
-This smart contract is responsible for managing the `.tez` top-level domain. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contact are available in the next chapter \(_TODO link_\).
+This smart contract is responsible for managing the `.tez` top-level domain. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contact are available in the [next chapter](top-level-domain-registrar.md).
 
