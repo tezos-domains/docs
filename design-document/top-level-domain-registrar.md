@@ -4,7 +4,7 @@ The registrar smart contract is responsible for managing the `.tez` top-level do
 
 ## Vickrey Auction
 
-The registrar implements the [Vickrey auction](https://en.wikipedia.org/wiki/Vickrey_auction) model. In this auction model, all bids are sealed and the highest bidder wins, but pays only the second-highest bid. There is a minimum bid that configurable by an administrator endpoint \(see below\).
+The registrar implements the [Vickrey auction](https://en.wikipedia.org/wiki/Vickrey_auction) model. In this auction model, all bids are sealed and the highest bidder wins, but pays only the second-highest bid amount. The `minimum_bid` parameter \(the minimum amount anyone can bid\) can change over time.
 
 To conduct Vickrey auction so that bids are truly sealed, several phases take place:
 
