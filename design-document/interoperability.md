@@ -231,6 +231,6 @@ Some implementations of UTS 46 include:
 Libraries that implement IDNA but not UTS 46 can alternatively be used. The string has to be first validated and normalized using `ToAscii` and the result converted back with `ToUnicode`. Some implementations of IDNA \(that don't include validation and normalization as part of the `ToUnicode` algorithm and have to be called using `ToUnicode(ToAscii(name))`\):
 
 * [System.Globalization.IdnMapping](https://docs.microsoft.com/en-us/dotnet/api/system.globalization.idnmapping) in .NET
-* [idna](https://docs.microsoft.com/en-us/dotnet/api/system.globalization.idnmapping) for Rust
+* [idna](https://docs.rs/idna/0.2.0/idna/) for Rust
 * [java.net.IDN](https://docs.oracle.com/javase/8/docs/api/java/net/IDN.html) in Java \(only implements IDNA 2003\)
 
