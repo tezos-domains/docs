@@ -1,6 +1,6 @@
 # Top-Level Domain Registrar
 
-The registrar smart contract is responsible for managing the `.tez` top-level domain. It sells domains to buyers and allows renewals of domains and transfers of ownership. It is also an implementor of the [FA2 - Multi-Asset Interface](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-12/tzip-12.md) \(TZIP-12\) to allow domains to be traded in secondary markets.
+The registrar smart contract is responsible for managing the `.tez` top-level domain. It sells domains to buyers and allows renewals of domains and transfers of ownership. It is also an implementor of the [FA2 - Multi-Asset Interface](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-12/tzip-12.md) \(TZIP-12\) to allow domains to be traded on secondary markets.
 
 ## Open Auction
 
