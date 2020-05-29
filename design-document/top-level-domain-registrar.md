@@ -7,23 +7,26 @@ The registrar smart contract is responsible for managing the `.tez` top-level do
 Every domain is offered to users through auction first. The registrar implements an [open ascending price auction](https://en.wikipedia.org/wiki/English_auction) model. It is an auction model most people are likely familiar with: all bids are openly visible and every new bid is required to be higher than the last bid. If there are no bids in a given period since the last bid, the auction ends with the highest bidder winning the auction.
 
 ### Bids
-All accounts can submit bids during an active auction and transfer the funds along in the same transaction. If a bid is higher or equal to the current highest bid multiplied by [minimum_increase_ratio](#configuration), it becomes the new highest bid and the previous highest bid becomes refundable. Otherwise, the transaction fails. The auction ends after [bid_period](#configuration) seconds since the last bid, but not earlier than [minimum_auction_period](#configuration) since the auction's start.
 
-A special case is the first bid, which has to be greater or equal to [starting_price](#configuration). When a previously unregistered domain name gets it's first bid, the name is pre-registered in the name registry to ensure it's validity.
+All accounts can submit bids during an active auction and transfer the funds along in the same transaction. If a bid is higher or equal to the current highest bid multiplied by [minimum\_increase\_ratio](top-level-domain-registrar.md#configuration), it becomes the new highest bid and the previous highest bid becomes refundable. Otherwise, the transaction fails. The auction ends after [bid\_period](top-level-domain-registrar.md#configuration) seconds since the last bid, but not earlier than [minimum\_auction\_period](top-level-domain-registrar.md#configuration) since the auction's start.
+
+A special case is the first bid, which has to be greater or equal to [starting\_price](top-level-domain-registrar.md#configuration). When a previously unregistered domain name gets it's first bid, the name is pre-registered in the name registry to ensure it's validity.
 
 ### Settlement
-After the auction ends, there is a settlement period [minimum_registration_period](#configuration) days long. The highest bidder invokes the settlement process transferring the domain to a chosen address, which becomes the new owner. The domain is registered for the [minimum_registration_period](#configuration) (the time spent in the settlement period counts towards that period). If the highest bidder doesn't invoke settlement, the domain is treated as expired after the settlement phase ends.
+
+After the auction ends, there is a settlement period [minimum\_registration\_period](top-level-domain-registrar.md#configuration) days long. The highest bidder invokes the settlement process transferring the domain to a chosen address, which becomes the new owner. The domain is registered for the [minimum\_registration\_period](top-level-domain-registrar.md#configuration) \(the time spent in the settlement period counts towards that period\). If the highest bidder doesn't invoke settlement, the domain is treated as expired after the settlement phase ends.
 
 ## First-In First-Served Registration
 
-An expired domain becomes available for FIFS after it's auction ended with no bids. In the FIFS model, all domains are sold for a flat fee equal to [starting_price](#configuration).
+An expired domain becomes available for FIFS after it's auction ended with no bids. In the FIFS model, all domains are sold for a flat fee equal to [starting\_price](top-level-domain-registrar.md#configuration).
 
 In the period after the launch of the smart contract, all domains are treated as recently expired.
 
 ## Renewals
 
-Owners of domains can renew their domains at any time up until the domain expires. The chosen renewal period has to be greater or equal to [minimum_registration_period](#configuration). Renewals are priced proportionally to the price the domain was initially sold for - the formula is:
-```
+Owners of domains can renew their domains at any time up until the domain expires. The chosen renewal period has to be greater or equal to [minimum\_registration\_period](top-level-domain-registrar.md#configuration). Renewals are priced proportionally to the price the domain was initially sold for - the formula is:
+
+```text
 price_of_renewal = chosen_renewal_period * initial_price / initial_registration_period
 ```
 
@@ -37,3 +40,4 @@ There are several parameters stored to configure this contract:
 * `bid_period` is the period after which the auction ends measured since the last successful bid \(in seconds\)
 * `initial_auction_start` is the start of the initial auction period for all domains, i.e., the date the service was officially launched
 * `minimum_registration_period` is the minimum period anyone can register or renew a domain for \(in seconds\)
+
