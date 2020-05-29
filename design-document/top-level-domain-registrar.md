@@ -8,9 +8,9 @@ Every domain is offered to users through auction first. The registrar implements
 
 ### Bids
 
-All accounts can submit bids during an active auction and transfer associated funds along in the same transaction. If a bid is higher or equal to the current highest bid multiplied by [minimum\_increase\_ratio](top-level-domain-registrar.md#configuration), it becomes the new highest bid and the previous highest bid becomes refundable. Otherwise, the transaction fails. The auction ends after [bid\_period](top-level-domain-registrar.md#configuration) seconds since the last bid, but not earlier than [minimum\_auction\_period](top-level-domain-registrar.md#configuration) since the auction's start.
+Any account can submit a bid during an active auction and transfer associated funds along in the same transaction. If a bid is higher or equal to the current highest bid multiplied by [minimum\_increase\_ratio](top-level-domain-registrar.md#configuration), it becomes the new highest bid and the previous highest bid becomes refundable. Otherwise, the transaction fails. The auction ends after [bid\_period](top-level-domain-registrar.md#configuration) seconds since the last bid, but not earlier than [minimum\_auction\_period](top-level-domain-registrar.md#configuration) since the auction's start.
 
-A special case is the first bid, which has to be greater or equal to [starting\_price](top-level-domain-registrar.md#configuration). When a previously unregistered domain name gets it's first bid, the name is pre-registered in the name registry to ensure it's validity.
+A special case is the first bid, which has to be greater or equal to [starting\_price](top-level-domain-registrar.md#configuration). When a previously unregistered domain name is first bid on, the name is pre-registered in the name registry to ensure it's validity.
 
 ### Settlement
 
@@ -18,7 +18,7 @@ After the auction ends, there is a settlement period of the same length as [mini
 
 ## First-In First-Served Registration
 
-An expired domain becomes available for FIFS after it's auction ended with no bids. In the FIFS model, all domains are sold for a flat fee equal to the [starting\_price](top-level-domain-registrar.md#configuration).
+An expired domain becomes available for FIFS only after it's auction ended with no bids. In the FIFS model, all domains are sold for a flat fee equal to the [starting\_price](top-level-domain-registrar.md#configuration).
 
 In the period after the launch of the smart contract, all domains are treated as recently expired.
 
