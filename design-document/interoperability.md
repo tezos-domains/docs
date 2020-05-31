@@ -8,7 +8,7 @@ Addresses are represented as a `map` containing at least the following key-value
 
 | Key | Value |
 | :--- | :--- |
-| `TLDRegistrar` | address of the `tez` TLD registrar |
+| `TLDRegistrar` | address of the TLD registrar |
 | `NameRegistry` | address of the name registry |
 | `ReverseRegistry` | address of the reverse registry |
 
