@@ -202,11 +202,20 @@ The callback contract will be invoked with the resolved name or with `None` if t
 
 Domain names generally have to conform to the [IDNA 2008](https://en.wikipedia.org/wiki/Internationalized_domain_name) mechanism \(RFC 5891, 5892, 5893\). The Unicode Standard [UTS 46](https://www.unicode.org/reports/tr46/) is a more specific \(and stricter\) application standard which is to be used for validation and normalization of domain names to achieve IDNA conformance.
 
+### Length Limit
+
+The length limitations are currently:
+
+* 1 to 100 characters on a **single label**,
+* 1 to 250 characters on a **full domain name**.
+
+It is not necessary for clients to validate length for lookup or reverse lookup purposes, as it's validated by the name registry. It is however strongly recommended to do so when creating new records to avoid transaction failures.
+
 ### Name Encode Algorithm
 
-This algorithm is used both for registration and lookup purposes when communicating with contracts. It permits the dot character \(`.`\) so it can be used both for encoding names and individual labels.
+This algorithm is used both for domain creation and lookup purposes when communicating with contracts. It permits the dot character \(`.`\) so it can be used both for encoding names and individual labels.
 
-1. The [ToUnicode](https://www.unicode.org/reports/tr46/#ToUnicode) algorithm is used to produce a normalized and validated name string. The UTS 46 version of ToUnicode validates the string, making it notably different from `ToUnicode` defined in IDNA, which does not have to fail on invalid labels. The algorithm is invoked with the following parameters:
+1. The [ToUnicode](https://www.unicode.org/reports/tr46/#ToUnicode) algorithm is used to produce a normalized and validated name string. The UTS 46 version of `ToUnicode` validates the string, making it notably different from `ToUnicode` defined in IDNA, which does not have to fail on invalid labels. The algorithm is invoked with the following parameters:
    * **CheckHyphens** = true
    * **CheckBidi** = true
    * **CheckJoiners** = true
