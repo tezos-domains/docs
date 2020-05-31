@@ -179,8 +179,7 @@ _Note: Clients **must not** rely on the ordering of the top-level nested pairs. 
 The resolution algorithm is as follows:
 
 1. Look up the address in the `records` bigmap. If the bigmap contains no such key, the given address is not resolvable.
-2. Extract the optional `name` value. If the optional value is `None`, the given address is not resolvable.
-3. Use the decode algorithm explained in [Name Validation and Normalization](interoperability.md).
+2. Extract the optional `name` value. If the optional value is `None`, the given address is not resolvable. Otherwise, use the `name` value.
 
 ### Instructions for Contracts
 
@@ -214,12 +213,6 @@ This algorithm is used both for registration and lookup purposes when communicat
    * **UseSTD3ASCIIRules** = true
    * **Transitional\_Processing** = false
 2. The name or label is encoded using UTF-8 into `bytes`.
-
-### Name Display \(Decode\) Algorithm
-
-1. The name is decoded from UTF-8 `bytes`.
-2. Using the `ToUnicode` algorithm, check that the normalized variant of the name is equal to the name itself. Any name retrieved from any TNS contract **must** be checked using this step. The contracts do not guarantee complete on-chain validation according to UTS 46 and can potentially store invalid names.
-3. If the original and normalized variants of the name are not equal or the name fails validation, it **must not** be displayed to the user. The exact UI behavior is up to the implementor to decide. Implementations can replace the invalid name with a short warning or omit the item completely \(acting as if it didn't exist\).
 
 ### Libraries
 

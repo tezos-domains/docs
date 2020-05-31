@@ -1,6 +1,6 @@
 # Top-Level Domain Registrar
 
-The registrar smart contract is responsible for managing the `.tez` top-level domain. It sells domains to buyers and allows renewals of domains and transfers of ownership. It is also an implementor of the [FA2 - Multi-Asset Interface](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-12/tzip-12.md) \(TZIP-12\) to allow domains to be traded on secondary markets.
+The registrar smart contract is responsible for managing the top-level domains. It sells second-level domains to buyers and allows renewals and transfers of ownership. It is also an implementor of the [FA2 - Multi-Asset Interface](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-12/tzip-12.md) \(TZIP-12\) to allow domains to be traded on secondary markets.
 
 ## Open Auction
 
@@ -29,6 +29,18 @@ Owners of domains can renew their domains at any time up until the domain expire
 ```text
 price_of_renewal = chosen_renewal_period * initial_price / initial_registration_period
 ```
+
+## Top-level Domain List
+The susceptibility to spoofing attacks using look-alike characters is reduced by limiting TLDs to predefined character scripts. Neither same-script and mixed-script confusable names can be created in the same TLD.
+
+The top-level domains available are:
+
+|Name    | Description
+|--------|----------------------------------------------|
+|`.tez`  | The standard TLD for names in Latin          |
+|`.тез`  | TLD for names in languages based on Cyrillic |
+
+TLDs for more scripts will be likely made available in the future.
 
 ## Configuration
 
