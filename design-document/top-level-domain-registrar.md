@@ -31,16 +31,17 @@ price_of_renewal = chosen_renewal_period * initial_price / initial_registration_
 ```
 
 ## Top-level Domain List
-The susceptibility to spoofing attacks using look-alike characters is reduced by limiting TLDs to predefined character scripts. Neither same-script and mixed-script confusable names can be created in the same TLD.
+
+The susceptibility to spoofing attacks using look-alike characters is reduced by limiting TLDs to predefined character scripts. Neither whole-script and mixed-script [confusable](https://www.unicode.org/reports/tr39/#Confusable_Detection) names can be created in one TLD.
 
 The top-level domains available are:
 
-|Name    | Description
-|--------|----------------------------------------------|
-|`.tez`  | The standard TLD for names in Latin          |
-|`.тез`  | TLD for names in languages based on Cyrillic |
+| Name | Description |
+| :--- | :--- |
+| `.tez` | The standard TLD for names in Latin |
+| `.тез` | TLD for names in languages based on Cyrillic |
 
-TLDs for more scripts will be likely made available in the future.
+TLDs for more character scripts will be likely made available in the future.
 
 ## Configuration
 
