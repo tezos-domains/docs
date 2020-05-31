@@ -32,7 +32,7 @@ price_of_renewal = chosen_renewal_period * initial_price / initial_registration_
 
 ## Top-level Domain List
 
-The susceptibility to spoofing attacks using look-alike characters is reduced by limiting TLDs to predefined character scripts. Neither whole-script and mixed-script [confusable](https://www.unicode.org/reports/tr39/#Confusable_Detection) names can be created in one TLD.
+The susceptibility to spoofing attacks using look-alike characters is reduced by limiting TLDs to predefined character scripts. Neither whole-script and mixed-script [confusable](https://www.unicode.org/reports/tr39/#Confusable_Detection) names can be created under one TLD.
 
 The top-level domains available are:
 
