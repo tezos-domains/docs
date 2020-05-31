@@ -49,5 +49,5 @@ The registry supports:
 
 ## TLDRegistrar
 
-This smart contract is responsible for managing the `.tez` top-level domain. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contact are available in the [next chapter](top-level-domain-registrar.md).
+This smart contract is responsible for managing the top-level domains. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contact are available in the [next chapter](top-level-domain-registrar.md).
 
