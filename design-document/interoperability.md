@@ -119,7 +119,7 @@ _Note: Clients **must not** rely on the ordering of the top-level nested pairs. 
 
 The resolution algorithm is as follows:
 
-1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](interoperability.md) for more details.
+1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](interoperability.md#name-encode-algorithm) for more details.
 2. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable.
 3. Extract the optional `address` value. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
 

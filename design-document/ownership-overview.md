@@ -14,6 +14,6 @@ The ownership scheme in the name registry is as follows \(from top to bottom\):
 This is a formally verified multisig contract with keys held by well known community members. It's needed for administrative actions like:
 
 * creating new top-level domains,
-* updating the [TLD configuration](https://github.com/tezos-name-service/docs/tree/8b9171618eb85ec96fb3ddfe1a6eb88ade324a73/design-document/top-level-domain-registrar/README.md#configuration),
+* updating the [TLD configuration](top-level-domain-registrar.md#configuration),
 * deploying new versions of contracts if a critical vulnerability is found.
 
