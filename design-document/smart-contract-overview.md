@@ -30,7 +30,7 @@ The registry supports:
 
 ## Label Validators
 
-These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the given top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](interoperability.md) chapter for more information about normalization and validation.
+These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](interoperability.md) chapter for more information about normalization and validation.
 
 ## ReverseRegistry
 
