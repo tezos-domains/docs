@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Tezos Name Service](README.md)
+* [Tezos Domains](README.md)
 
 ## Design Document Proposal <a id="design-document"></a>
 
