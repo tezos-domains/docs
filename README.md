@@ -1,3 +1,7 @@
+---
+description: Creating human-readable names for cryptocurrency addresses on Tezos network.
+---
+
 # Tezos Domains
 
 You can read our post series on Designing a Name Service on [Medium ](https://medium.com/tezos-name-service)or discuss with us on Tezos Agora
