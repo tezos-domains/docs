@@ -1,6 +1,6 @@
 # Top-Level Domain Registrar
 
-The registrar smart contract is responsible for managing the top-level domains. It sells second-level domains to buyers and allows renewals and transfers of ownership. It is also an implementor of the [FA2 - Multi-Asset Interface](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-12/tzip-12.md) \(TZIP-12\) to allow domains to be traded on secondary markets.
+The registrar smart contract is responsible for managing the top-level domains. It sells second-level domains to buyers and allows renewals and transfers of ownership.
 
 ## Open Auction
 
@@ -18,9 +18,9 @@ After the auction ends, there is a settlement period of the same length as [mini
 
 ## First-In First-Served Registration
 
-An expired domain becomes available for FIFS only after it's auction ended with no bids. In the FIFS model, all domains are sold for a flat fee equal to the [starting\_price](top-level-domain-registrar.md#configuration).
+An expired domain becomes available for FIFS only after it's auction ended with no bids. In the FIFS model, all domains are sold for a flat fee equal to the [starting\_price](top-level-domain-registrar.md#configuration). In the period after the launch of the smart contract, all domains are treated as recently expired.
 
-In the period after the launch of the smart contract, all domains are treated as recently expired.
+For FIFS registration, the contract implements a commit & reveal scheme to avoid [front-running](https://medium.com/consensys-diligence/transparent-dishonesty-taxonomy-of-front-running-attacks-on-blockchain-317d8ff78068) of transactions.
 
 ## Renewals
 
