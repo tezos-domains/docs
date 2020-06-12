@@ -13,7 +13,7 @@ You can read our post series on Designing a Name Service on [Medium ](https://me
 * [Part 3: Name Distribution and Pricing](https://forum.tezosagora.org/t/designing-a-name-service-part-3-name-distribution-and-pricing/1914)
 * [Part 4: Validation, Normalization, Encoding](https://forum.tezosagora.org/t/designing-a-name-service-part-4-validation-normalization-encoding/1915)
 * [Part 5: Retaining Trademarks](https://forum.tezosagora.org/t/designing-a-name-service-part-5-retaining-trademarks/1931)
-* [Introducing Tezos Domains](https://you.better-call.dev/carthagenet/KT1RmSWYsEhoMLcnbE5NVDZi9jixtXMwnwDS/operations)
+* [Introducing Tezos Domains](https://forum.tezosagora.org/t/introducing-tezos-domains/1985)
 
 ## Motivation
 
