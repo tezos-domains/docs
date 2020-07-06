@@ -10,7 +10,7 @@ Every domain is offered to users through auction first. The registrar implements
 
 Any account can submit a bid during an active auction and transfer associated funds along in the same transaction. If a bid is higher or equal to the current highest bid multiplied by [minimum\_increase\_ratio](top-level-domain-registrar.md#configuration), it becomes the new highest bid and the previous highest bid becomes refundable or available for future bids \(on the same or a different domain\). Otherwise, the transaction fails. The auction ends after [bid\_period](top-level-domain-registrar.md#configuration) seconds since the last bid, but not earlier than [minimum\_auction\_period](top-level-domain-registrar.md#configuration) since the auction's start.
 
-A special case is the first bid, which has to be greater or equal to [starting\_price](top-level-domain-registrar.md#configuration). When a previously unregistered domain name is first bid on, the name is pre-registered in the name registry to ensure it's validity.
+A special case is the first bid, which has to be greater or equal to [min\_bid\_per\_day](top-level-domain-registrar.md#configuration). When a previously unregistered domain name is first bid on, the name is pre-registered in the name registry to ensure it's validity.
 
 ### Settlement
 
@@ -47,10 +47,12 @@ TLDs for more character scripts will be likely made available in the future.
 
 There are several parameters stored to configure this contract:
 
-* `starting_price` is the minimum amount that participants have to bid initially \(in mutez\)
+* `min_bid_per_day` is the minimum amount that participants have to bid initially \(in mutez\)
 * `minimum_increase_ratio` is the minimum ratio of a new bid to the current highest bid 
 * `minimum_auction_period` is the minimum auction period \(in seconds\)
 * `bid_period` is the period after which the auction ends measured since the last successful bid \(in seconds\)
 * `initial_auction_start` is the start of the initial auction period for all domains, i.e., the date the service was officially launched
 * `minimum_registration_period` is the minimum period anyone can register or renew a domain for \(in seconds\)
+* `min_commitment_age` is the minimum time for a buy commitment to be valid \(in seconds\)
+* `max_commitment_age` is the maximum time for a buy commitment to be valid \(in seconds\)
 

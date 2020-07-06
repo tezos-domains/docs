@@ -1,144 +1,148 @@
 # Interoperability
 
-## Discovery
+## Proxy Contracts
 
-Clients and contracts use the discovery process to obtain the current smart contract addresses they can interact with. The address of the `Discovery` contract for Mainnet and testnets will be published here when available.
+To ensure future upgradeability while allowing clients to rely on fixed contract addresses, we offer a set of proxy contracts. Off-chain clients use their storage to fetch current contract addresses. Contracts can interact with them directly - the transactions are automatically routed to the correct destination.
 
-Addresses are represented as a `map` containing at least the following key-values:
+The addresses of the proxy contracts are following:
 
-| Key | Value |
-| :--- | :--- |
-| `TLDRegistrar` | address of the TLD registrar |
-| `NameRegistry` | address of the name registry |
-| `ReverseRegistry` | address of the reverse registry |
+| Contract | Mainnet | Carthagenet |
+| :--- | :--- | :--- |
+| `TLDRegistrarProxy` | TBA | TBA |
+| `NameRegistryProxy` | TBA | TBA |
 
-### Instructions for Clients
+### Instructions for Contracts
 
-Off-chain clients retrieve the individual addresses directly from the contract's storage. The `Discovery` contract contains the following storage structure:
+Contracts can use all entrypoints that are described in this spec with the corresponding proxy contracts directly. All transactions will be automatically routed to the correct contract.
 
-**SmartPy:**
+### Instructions for Off-chain Clients
 
-```python
-sp.TRecord(
-    contracts = sp.TMap(tkey = sp.TString, tvalue = sp.TAddress),
+Off-chain clients retrieve the individual addresses from the proxy contract's storage. Using automatic routing on the proxy contracts is discouraged for off-chain clients, as it unnecessarily increases the overall transaction gas consumption.
 
-    # ... more fields outside of this interoperability spec
-)
+_CameLIGO**:**_
+
+```ocaml
+type proxy_storage = {
+    contract: address;
+
+    (* ... more fields outside of this interoperability spec *)
+}
 ```
 
-**Michelson:**
+_Michelson**:**_
 
 ```text
 storage (pair
-    (map %contracts string address)
+    (address %contract)
     (
         # ... more fields outside of this interoperability spec
     )
 );
 ```
 
-_Note: Clients **must not** rely on the ordering of the top-level nested pairs. They should always use annotations to find the correct value._
+_Note: Off-chain clients **must not** rely on a particular storage layout. They should always use annotations to find the correct value._
 
-### Instructions for Contracts
+## NameRegistry
 
-Contracts can use the `get_addresses` entry-point to get all known smart contract addresses via a callback.
+The `NameRegistry` contract provides forward and reverse resolution.
 
-**SmartPy:**
+### Instructions for Off-chain Clients
 
-```python
-# Gets all known addresses
-@sp.entry_point
-def get_addresses(self, callback):
-    sp.set_type(callback, sp.TContract(sp.TMap(tkey = sp.TString, tvalue = sp.TAddress)))
-    # ...
+After retrieving `NameRegistry`address from `NameRegistryProxy`, off-chain clients can perform resolution using the contract's storage. The `NameRegistry` contract uses the following storage structure:
+
+_CameLIGO**:**_
+
+```ocaml
+type record = {
+    (* The optional address the record resolves to *)
+    address: address option;
+
+    (* The owner of the record allowed to make changes *)
+    owner: address;
+
+    (* A map of any additional data clients wish to store with the domain *)
+    data: (string, data_value) map;
+
+    (* Validator contract reference used for validating names of new subrecords *)
+    validator: nat option;
+
+    (* The computed level of this record *)
+    level: nat;
+
+    (* Key to the validity map containing the validity of this record *)
+    validity_key: bytes option
+}
+
+type reverse_record = {
+    name: bytes option;
+    owner: address;
+}
+
+type storage = {
+    (* Map of UTF-8 encoded names to forward records *)
+    records: (bytes, record) big_map;
+
+    (* Map of addresses to reverse records *)
+    reverse_records: (address, reverse_record) big_map;
+
+    (* Map containing validity for every second-level domain *)
+    validity_map: (bytes, timestamp) big_map;
+
+    (* ... more fields outside of this interoperability spec *)
+}
 ```
 
-**Michelson:**
+_Michelson**:**_
 
 ```text
-parameter (or 
-    (contract %get_addresses (map string address))
-    # ... more endpoints outside of this interoperability spec
-);
+TBD
 ```
 
-## Name Resolution
+_Note: Clients **must not** rely on a particular storage or record layout. They should always use annotations to find the correct value._
 
-Forward name resolution is done using the `NameRegistry` contract. After retrieving its address via discovery, one of the following processes should be used.
-
-### Instructions for Clients
-
-Off-chain clients resolve names using the contract's storage directly. The `NameRegistry` contract uses the following structure:
-
-**SmartPy:**
-
-```python
-sp.TRecord(
-    records = sp.big_map(
-        tkey = sp.TBytes,
-        tvalue = sp.TRecord(
-            address = sp.TOption(sp.TAddress),
-            owner = sp.TAddress,
-            ttl = sp.TOption(sp.TNat),
-            data = sp.TMap(sp.TString, sp.TVariant(string = sp.TString, nat = sp.TNat, int = sp.TInt, bytes = sp.TBytes))
-        )
-    ),
-
-    # ... more fields that are outside of this interoperability spec
-)
-```
-
-**Michelson:**
-
-```text
-storage (pair
-    (big_map %records bytes (pair
-        (address %owner)
-        (pair
-            (option %ttl nat)
-            (pair
-                (map %data string (or
-                    (or
-                        (bytes %bytes)
-                        (int %int)
-                    )
-                    (or
-                        (nat %nat)
-                        (string %string)
-                    )
-                ))
-                (option %address address)
-            )
-        )
-    ))
-    # ... more fields outside of this interoperability spec
-);
-```
-
-_Note: Clients **must not** rely on the ordering of the top-level nested pairs. They should always use annotations to find the correct value._
+#### Forward Resolution \(name to address\)
 
 The resolution algorithm is as follows:
 
 1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](interoperability.md#name-encode-algorithm) for more details.
 2. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable.
-3. Extract the optional `address` value. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
+3. Use the `validity_key` value of the record to look up the validity in the `validity_map`. If a timestamp is found and is lower than the current time, the given domain is not resolvable.
+4. Extract the optional `address` value from the record. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
+
+#### Reverse Resolution \(address to name\)
+
+The resolution algorithm is as follows:
+
+1. Look up the address in the `reverse_records` bigmap. If the bigmap contains no such key, the given address is not resolvable.
+2. Extract the optional `name` value. If the optional value is `None`, the given address is not resolvable. 
+3. Use the `name` value to look up the corresponding forward record.  Use it's `validity_key` value to look up the validity of the record in the `validity_map`. If a timestamp is found and is lower than the current timestamp, the given address is not resolvable
+4. Otherwise, use the `name` value.
 
 ### Instructions for Contracts
 
-Contracts can use the `resolve` entry-point and get the resolved address via a callback.
+#### Forward Resolution \(name to address\)
 
-**SmartPy:**
+Contracts can use the `resolve` entry-point on `NameRegistryProxy` and get the resolved address with a callback.
 
-```python
-# Resolves a given name
-@sp.entry_point
-def resolve(self, params):
-    sp.set_type(params, sp.TRecord(name = sp.TBytes, callback = sp.TContract(sp.TOption(sp.TAddress))))
-    sp.set_record_layout(params, ("name", "callback"))
-    # ...
+_CameLIGO**:**_
+
+```ocaml
+type resolve_param = {
+    (* The UTF-8 encoded name to resolve *)
+    name: bytes;
+
+    (*
+    The callback to make. If not resolved,
+    None is passed (a call back is always made).
+    *)
+    callback: address option contract
+}
+
+(* Resolves a name to it's address via a callback. *)
+| Resolve of resolve_param
 ```
 
-**Michelson:**
+_Michelson**:**_
 
 ```text
 parameter (or
@@ -149,51 +153,32 @@ parameter (or
 
 The name has to be a full domain name that has been normalized and validated. The callback contract will be invoked with the resolved address or with `None` if the name could not be resolved.
 
-## Reverse Resolution
+#### Reverse Resolution \(address to name\)
 
-Reverse resolution is done using the `ReverseRegistry` contract. After retrieving its address via discovery, one of the following processes should be used depending on the type of the caller.
+Contracts can use the `reverse_resolve` entry-point and get the resolved address via a callback.
 
-### Instructions for Clients
+_CameLIGO**:**_
 
-Off-chain clients resolve names using the contract's storage directly. The `ReverseRegistry` contract uses the following structure:
+```ocaml
+type reverse_resolve_param = {
+    (* The address to resolve *)
+    addr: address;
 
-**SmartPy:**
+    (*
+    The callback to make. If not resolved,
+    None is passed (a call back is always made).
+    *)
+    callback: bytes option contract
+}
 
-```python
-sp.TRecord(
-    records = sp.big_map(
-        tkey = sp.TBytes,
-        tvalue = sp.TRecord(
-            name = sp.TOption(sp.TBytes),
-            owner = sp.TAddress,
-            ttl = sp.TOption(sp.TNat)
-        )
-    ),
-
-    # ... more fields that are outside of this interoperability spec
-)
+(* Resolves an address to it's name via a callback. *)
+| Reverse_resolve of reverse_resolve_param
 ```
 
-_Note: Clients **must not** rely on the ordering of the top-level nested pairs. They should always use annotations to find the correct value._
-
-The resolution algorithm is as follows:
-
-1. Look up the address in the `records` bigmap. If the bigmap contains no such key, the given address is not resolvable.
-2. Extract the optional `name` value. If the optional value is `None`, the given address is not resolvable. Otherwise, use the `name` value.
-
-### Instructions for Contracts
-
-Contracts can use the `resolve` entry-point and get the resolved address via a callback.
-
-**SmartPy:**
+_Michelson**:**_
 
 ```python
-# Resolves a given name
-@sp.entry_point
-def resolve(self, params):
-    sp.set_type(params, sp.TRecord(address = sp.TAddress, callback = sp.TContract(sp.TOption(sp.TBytes))))
-    sp.set_record_layout(params, ("name", "callback"))
-    # ...
+TBD
 ```
 
 The callback contract will be invoked with the resolved name or with `None` if the address could not be resolved.

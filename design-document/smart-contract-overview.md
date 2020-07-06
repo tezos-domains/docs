@@ -17,35 +17,31 @@ The discovery process is further detailed in the [Interoperability](interoperabi
 The name registry keeps track of all domains in the system, indexed by their name. There is an implied hierarchy of domains - ownership of a domain allows you to create or replace sub-domains. For every domain, the following information is stored:
 
 * **Owner** \(`address`\) is an account authorized to make changes in the record and manage subdomains of the given domain.
-* **TTL** \(optional `nat`\) is the time-to-live of the record in caches and other secondary storage mechanisms.
 * **Resolution address**, the optional `address` the name resolves to.
 * **Additional data**, a map with any additional data clients wish to store with the domain.
-* **Validator contract reference** used for validating names of new subrecords.
+* **Validity reference**, a reference inside the validity map, which contains timestamps for every second-level domain. This timestamp represents a point in time when the domain ceases to be valid.
+* **Label validator reference** - an index of a contract used for validating labels of new subrecords.
 
-The registry supports:
+The reverse registry stores reverse mapping of addresses to their names. Reverse records are optional, but if a reverse record exists for a given address, the name has to resolve back to that address \(both contracts cooperate to guarantee consistency\). For every address, the following information is stored:
+
+* **Owner** \(`address`\) is an account authorized to make changes in the record.
+* **Name** is the name this reverse record resolves to.
+
+Supported operations on **records** are:
 
 * resolving a name and returning the resolved address via callback,
 * managing records,
 * creating new sub-records.
 
-## Label Validators
-
-These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](interoperability.md) chapter for more information about normalization and validation.
-
-## ReverseRegistry
-
-The reverse registry stores reverse mapping of addresses to their names. Reverse records are optional, but if a reverse record exists for a given address, the name has to resolve back to that address \(both contracts cooperate to guarantee consistency\). For every address, the following information is stored:
-
-* **Owner** \(`address`\) is an account authorized to make changes in the record.
-* **TTL** \(`nat`\) is the maximum time-to-live of the record in caches and other secondary storage mechanisms.
-* **Name** is the name this reverse record resolves to.
-
-The registry supports:
+Operations on **reverse records** are:
 
 * resolving an address and returning the resolved name via callback,
 * claiming records for the sender,
-* managing records,
-* removing records.
+* updating records
+
+## Label Validators
+
+These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](interoperability.md) chapter for more information about normalization and validation.
 
 ## TLDRegistrar
 
