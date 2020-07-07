@@ -4,6 +4,8 @@ The registrar smart contract is responsible for managing the top-level domains. 
 
 ## Open Auction
 
+_Note that auctions are a planned functionality and not implemented in the current version._
+
 Every domain is offered to users through auction first. The registrar implements an [open ascending price auction](https://en.wikipedia.org/wiki/English_auction) model. It is an auction model most people are likely familiar with: all bids are openly visible and every new bid is required to be higher than the last bid. If there are no bids in a given period since the last bid, the auction ends with the highest bidder winning the auction.
 
 ### Bids
