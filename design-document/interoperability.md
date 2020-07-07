@@ -8,8 +8,8 @@ The addresses of the proxy contracts are following:
 
 | Contract | Mainnet | Carthagenet |
 | :--- | :--- | :--- |
-| **TLDRegistrarProxy** | TBA | `KT1FJheAi6GyX8MDpqahN5VCpFp12Kpgo7Tm` |
 | **NameRegistryProxy** | TBA | `KT1JLkXGT6q4YkyHQNvGKtJA41KVHysZ1ctU` |
+| **TLDRegistrarProxy** for `.tez` | TBA | `KT1FJheAi6GyX8MDpqahN5VCpFp12Kpgo7Tm` |
 
 ### Instructions for Contracts
 
