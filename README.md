@@ -23,6 +23,8 @@ People are already used to creating names for their e-mail boxes, Instagram acco
 
 ## What Is Tezos Domains
 
+Tezos Domains is a distributed, open and extensible naming system using Tezos blockchain.
+
 The main function is to translate a meaningful and user-friendly alias to a Tezos address and vice versa. This translation is globally consistent so that all participants on the blockchain see the same address for a given alias.
 
 A parallel that's often drawn is to the [DNS](https://en.wikipedia.org/wiki/Domain_Name_System), a familiar and universally adopted system:
