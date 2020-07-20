@@ -21,7 +21,7 @@ Using addresses can become an obstacle for the practical use of Tezos as a curre
 
 People are already used to creating names for their e-mail boxes, Instagram accounts, or their web pages. This project is providing them with this familiar approach inside the Tezos ecosystem.
 
-## What Are Tezos Domains
+## What Is Tezos Domains
 
 The main function is to translate a meaningful and user-friendly alias to a Tezos address and vice versa. This translation is globally consistent so that all participants on the blockchain see the same address for a given alias.
 
