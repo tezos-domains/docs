@@ -2,22 +2,13 @@
 
 ## Proxy Contracts
 
-To ensure future upgradeability while allowing clients to rely on fixed contract addresses, we offer a set of proxy contracts. Off-chain clients use their storage to fetch current contract addresses. Contracts can interact with them directly - the transactions are automatically routed to the correct destination.
+To ensure future upgradeability while allowing clients to rely on fixed contract addresses, we offer a set of proxy contracts. Any 3rd-party contract can interact with them directly - the transactions are automatically routed to the correct destination.
 
-The addresses of the proxy contracts are following:
+You can find the addresses of the proxy contracts in the [Deployed Contracts](../deployed-contracts/carthagenet.md) section.
 
-| Contract | Mainnet | Carthagenet |
-| :--- | :--- | :--- |
-| **NameRegistryProxy** | TBA | `KT1JLkXGT6q4YkyHQNvGKtJA41KVHysZ1ctU` |
-| **TLDRegistrarProxy** for `.tez` | TBA | `KT1FJheAi6GyX8MDpqahN5VCpFp12Kpgo7Tm` |
+### Finding the Underlying Contract
 
-### Instructions for Contracts
-
-Contracts can use all entrypoints that are described in this spec with the corresponding proxy contracts directly. All transactions will be automatically routed to the correct contract.
-
-### Instructions for Off-chain Clients
-
-Off-chain clients retrieve the individual addresses from the proxy contract's storage. Using automatic routing on the proxy contracts is discouraged for off-chain clients, as it unnecessarily increases the overall transaction gas consumption.
+Off-chain clients will often need to read data from an underlying contract. They can retrieve the individual addresses of underlying contracts from the proxy contract's storage. The generic storage structure follows:
 
 _CameLIGO**:**_
 
@@ -48,7 +39,7 @@ The `NameRegistry` contract provides forward and reverse resolution.
 
 ### Instructions for Off-chain Clients
 
-After retrieving `NameRegistry`address from `NameRegistryProxy`, off-chain clients can perform resolution using the contract's storage. The `NameRegistry` contract uses the following storage structure:
+Clients retrieve the current address of `NameRegistry` by reading it from the storage of the proxy contract `NameRegistry.CheckAddress` \(as explained above\). The `NameRegistry` contract has the following storage structure:
 
 _CameLIGO**:**_
 
@@ -61,7 +52,7 @@ type record = {
     owner: address;
 
     (* A map of any additional data clients wish to store with the domain *)
-    data: (string, data_value) map;
+    data: (string, bytes) map;
 
     (* Validator contract reference used for validating names of new subrecords *)
     validator: nat option;
@@ -69,13 +60,19 @@ type record = {
     (* The computed level of this record *)
     level: nat;
 
-    (* Key to the validity map containing the validity of this record *)
-    validity_key: bytes option
+    (* Key to the expiry map containing the validity of this record *)
+    expiry_key: bytes option
 }
 
 type reverse_record = {
+    (* UTF-8 encoded name *)
     name: bytes option;
+    
+    (* The owner of the record allowed to make changes *)
     owner: address;
+
+    (* A map of any additional data clients wish to store with the record *)
+    data: (string, bytes) map;
 }
 
 type storage = {
@@ -85,8 +82,8 @@ type storage = {
     (* Map of addresses to reverse records *)
     reverse_records: (address, reverse_record) big_map;
 
-    (* Map containing validity for every second-level domain *)
-    validity_map: (bytes, timestamp) big_map;
+    (* Map containing expiry for every second-level domain *)
+    expiry_map: (bytes, timestamp) big_map;
 
     (* ... more fields outside of this interoperability spec *)
 }
@@ -106,7 +103,7 @@ The resolution algorithm is as follows:
 
 1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](interoperability.md#name-encode-algorithm) for more details.
 2. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable.
-3. Use the `validity_key` value of the record to look up the validity in the `validity_map`. If a timestamp is found and is lower than the current time, the given domain is not resolvable.
+3. Use the `expiry_key` value of the record to look up the validity in the `expiry_map`. If a timestamp is found and is lower or equal to the current time, the given domain is not resolvable.
 4. Extract the optional `address` value from the record. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
 
 #### Reverse Resolution \(address to name\)
@@ -115,73 +112,40 @@ The resolution algorithm is as follows:
 
 1. Look up the address in the `reverse_records` bigmap. If the bigmap contains no such key, the given address is not resolvable.
 2. Extract the optional `name` value. If the optional value is `None`, the given address is not resolvable. 
-3. Use the `name` value to look up the corresponding forward record.  Use it's `validity_key` value to look up the validity of the record in the `validity_map`. If a timestamp is found and is lower than the current timestamp, the given address is not resolvable
+3. Use the `name` value to look up the corresponding forward record.  Use it's `expiry_key` value to look up the validity of the record in the `expiry_map`. If a timestamp is found and is lower or equal to the current timestamp, the given address is not resolvable
 4. Otherwise, use the `name` value.
 
 ### Instructions for Contracts
 
-#### Forward Resolution \(name to address\)
+**Resolution of names by contracts is currently not supported.** That being said, sometimes it can be useful to validate on-chain that a name corresponds to an address for security purposes. For example, a wallet might group a transaction sending money with another transaction that performs this check. If the check fails, both transactions fail and no money changes hands.
 
-Contracts can use the `resolve` entry-point on `NameRegistryProxy` and get the resolved address with a callback.
+Both on-chain and off-chain clients can do this by calling the `check_address` entry-point on `NameRegistry.CheckAddress`. 
 
 _CameLIGO**:**_
 
 ```ocaml
-type resolve_param = {
-    (* The UTF-8 encoded name to resolve *)
+type check_address_param = {
+    (* UTF-8 encoded name *)
     name: bytes;
 
-    (*
-    The callback to make. If not resolved,
-    None is passed (a call back is always made).
-    *)
-    callback: address option contract
+    (* expected address *)
+    address: address
 }
 
-(* Resolves a name to it's address via a callback. *)
-| Resolve of resolve_param
+(* Checks that a name corresponds to an address. *)
+| Check_address of check_address_param michelson_pair_left_comb
 ```
 
 _Michelson**:**_
 
 ```text
 parameter (or
-    (pair %resolve (bytes %name) (contract %callback (option address)))
+    (pair %check_address (bytes %name) (address %address)
     # ... more endpoints outside of this interoperability spec
 );
 ```
 
-The name has to be a full domain name that has been normalized and validated. The callback contract will be invoked with the resolved address or with `None` if the name could not be resolved.
-
-#### Reverse Resolution \(address to name\)
-
-Contracts can use the `reverse_resolve` entry-point and get the resolved address via a callback.
-
-_CameLIGO**:**_
-
-```ocaml
-type reverse_resolve_param = {
-    (* The address to resolve *)
-    addr: address;
-
-    (*
-    The callback to make. If not resolved,
-    None is passed (a call back is always made).
-    *)
-    callback: bytes option contract
-}
-
-(* Resolves an address to it's name via a callback. *)
-| Reverse_resolve of reverse_resolve_param
-```
-
-_Michelson**:**_
-
-```python
-TBD
-```
-
-The callback contract will be invoked with the resolved name or with `None` if the address could not be resolved.
+The transaction will either do nothing \(if the address is indeed correct\) or fail with the message `NAME_ADDRESS_MISMATCH` if the address is incorrect.
 
 ## Name Validation and Normalization
 

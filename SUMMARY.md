@@ -11,6 +11,8 @@
 
 ## Deployed Contracts
 
+* [Carthagenet](deployed-contracts/carthagenet.md)
+
 ## Integrating Tezos Domains
 
 * [Client Libraries](integrating-tezos-domains/client-libraries.md)
