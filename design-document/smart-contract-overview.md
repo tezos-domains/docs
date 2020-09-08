@@ -19,7 +19,7 @@ Upgradeability is achieved by having:
 
 Proxy contracts provide a fixed interface that will always keep working under the same address and will be kept forward compatible. A proxy contract can also be repointed to a new underlying contract in case of a major upgrade that requires storage to be migrated.
 
-All proxy contracts are prefixed by the name of their underlying contract \(e.g. `NameRegistry.CheckAddress`\). The usage of proxy contracts by clients is further detailed in the [Interoperability](interoperability.md) chapter.
+To optimize gas costs, every entrypoint is accessible through it's own dedicated proxy contract. Every proxy contract is prefixed by the name of it's underlying contract \(e.g. `NameRegistry.CheckAddress` is the proxy contract that contains the `check_address` entrypoint and uses `NameRegistry` as the underlying contract\). The usage of proxy contracts by clients is further detailed in the [Interoperability](interoperability.md) chapter.
 
 ### Underlying Contracts
 
