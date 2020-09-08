@@ -2,17 +2,32 @@
 
 ![Overview of Smart Contracts](../.gitbook/assets/smart_contracts.png)
 
-## Discovery
+## Architecture & Upgradeability
 
-A proxy contract that exists solely for upgradeability. DApps, libraries, and other contracts use it to discover contracts they can interact with. It contains addresses of the following contracts:
+Tezos Domains smart contracts are designed to be upgradeable on multiple levels:
 
-* `TLDRegistrar`
-* `NameRegistry`
-* `ReverseRegistry`
+* fixes can be deployed in the future by changing the implementation of existing code,
+* new features can potentially be added,
+* storage structure can be in theory also extended \(this would be considered a major change that requires data migration\).
 
-The discovery process is further detailed in the [Interoperability](interoperability.md) chapter.
+This is achieved by having:
+
+* a set of implementation or **underlying** **contracts** that contain both storage and mutable code in the form of Michelson lambdas,
+* a set of **proxy contracts** that act as an outward interface.
+
+### Proxy Contracts
+
+Proxy contracts provide a fixed interface that will always keep working under the same address and will be kept backward compatible. A proxy contract can also be repointed to a new underlying contract in case of a major upgrade that requires storage to be migrated.
+
+All proxy contracts are prefixed by the name of their underlying contract \(e.g. `NameRegistry.CheckAddress`\). The usage of proxy contracts by clients is further detailed in the [Interoperability](interoperability.md) chapter.
+
+### Underlying Contracts
+
+Underlying \(or implementation\) contracts store the actual Tezos Domains data along with bigmaps that contain executable code. They serve two purposes: stored code can be updated by the owner contract if needed and provides significant benefits in terms of gas cost \(and potentially fees paid by the user\).
 
 ## NameRegistry
+
+An upgradeable contract that stores the actual domain records.
 
 ### Forward Records
 
@@ -47,7 +62,9 @@ Supported **operations** on reverse records are:
 
 These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](interoperability.md) chapter for more information about normalization and validation.
 
+Label validators are not upgradeable by themselves. Upgradeability can be achieved by simply repointing `NameRegistry` to a new validator address.
+
 ## TLDRegistrar
 
-This smart contract is responsible for managing the top-level domains. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contact are available in the [next chapter](top-level-domain-registrar.md).
+This upgradeable smart contract is responsible for managing the top-level domains. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contact are available in the [next chapter](top-level-domain-registrar.md).
 
