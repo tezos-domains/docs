@@ -6,18 +6,18 @@
 
 Tezos Domains smart contracts are designed to be upgradeable on multiple levels:
 
-* fixes can be deployed in the future by changing the implementation of existing code,
-* new features can potentially be added,
-* storage structure can be in theory also extended \(this would be considered a major change that requires data migration\).
+* **fixes** can be deployed in the future by changing the implementation of existing code,
+* **new features** can potentially be added,
+* **storage structure** can be theoretically also extended \(this would be considered a major change that would require data migration\).
 
-This is achieved by having:
+Upgradeability is achieved by having:
 
 * a set of implementation or **underlying** **contracts** that contain both storage and mutable code in the form of Michelson lambdas,
 * a set of **proxy contracts** that act as an outward interface.
 
 ### Proxy Contracts
 
-Proxy contracts provide a fixed interface that will always keep working under the same address and will be kept backward compatible. A proxy contract can also be repointed to a new underlying contract in case of a major upgrade that requires storage to be migrated.
+Proxy contracts provide a fixed interface that will always keep working under the same address and will be kept forward compatible. A proxy contract can also be repointed to a new underlying contract in case of a major upgrade that requires storage to be migrated.
 
 All proxy contracts are prefixed by the name of their underlying contract \(e.g. `NameRegistry.CheckAddress`\). The usage of proxy contracts by clients is further detailed in the [Interoperability](interoperability.md) chapter.
 
@@ -36,7 +36,7 @@ Forward records \(or just records\) represent all domains in the system, indexed
 * **Owner** \(`address`\) is an account authorized to make changes in the record and manage subdomains of the given domain.
 * **Resolution address**, the optional `address` the name resolves to.
 * **Additional data**, a map with any additional data clients wish to store with the domain.
-* **Validity reference**, a reference inside the validity map, which contains timestamps for every second-level domain. This timestamp represents a point in time when the domain ceases to be valid.
+* **Expiry reference**, a reference inside the expiry map, which contains timestamps for every second-level domain. This timestamp represents a point in time when the domain ceases to be valid.
 * **Label validator reference** representing a contract used for validating labels of new subrecords.
 
 Supported **operations** on records are:
