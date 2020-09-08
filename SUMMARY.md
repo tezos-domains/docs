@@ -16,7 +16,8 @@
 ## Integrating Tezos Domains
 
 * [Client Libraries](integrating-tezos-domains/client-libraries.md)
-* [GraphQL](integrating-tezos-domains/graphql.md)
+* [GraphQL](integrating-tezos-domains/graphql/README.md)
+  * [Carthagenet](integrating-tezos-domains/graphql/carthagenet-endpoint.md)
 
 ## Guides & Tutorials
 
