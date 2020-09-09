@@ -13,7 +13,7 @@ Entrypoint: `set_child_record`
 | **data** | `(string, data_value) map` | map of any additional data clients wish to store with the domain |
 | **expiry** | `timestamp option` | The expiry of this record. This only applies to second-level domains. For all other cases, the value is ignored. |
 
-This will create or overwrite an existing record. The current sender is the owner of the parent record.
+This will create or overwrite an existing record. The current sender must to be the owner of the parent record.
 
 {% tabs %}
 {% tab title="CameLIGO" %}
@@ -42,7 +42,7 @@ TBD
 The call will **fail** in the following cases:
 
 * the label fails validation
-* parent node does not exist
-* the owner of the parent node is not the current sender
+* parent record does not exist
+* the owner of the parent record is not the current sender
 * a non-zero amount is sent with this transaction
 
