@@ -12,6 +12,8 @@
 
 * [Proxy Contracts](interoperability/proxy-contracts.md)
 * [Name Resolution](interoperability/interoperability.md)
+* [Updating NameRegistry](interoperability/updating-nameregistry.md)
+* [Buys & Renewals](interoperability/buys-and-renewals.md)
 
 ## Deployed Contracts
 
