@@ -2,7 +2,7 @@
 
 ### Contract: NameRegistry.CheckAddress
 
-Checks that there is a domain record with specified name and address.
+Checks that there is a domain record with the specified name and the address.
 
 Entrypoint: `check_address`
 
@@ -70,7 +70,7 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| NAME\_ADDRESS\_MISMATCH | There is no corresponding domain record or it resolves to an address different from sender's address. |
+| NAME\_ADDRESS\_MISMATCH | There is no corresponding domain record or it resolves to an address different from the sender's address. |
 
 ### Contract: NameRegistry.SetChildRecord
 
@@ -114,8 +114,8 @@ TBD
 | :--- | :--- |
 | AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
 | PARENT\_NOT\_FOUND | There is no record for the specified parent domain. |
-| NOT\_AUTHORIZED | The current sender is not the record owner. |
-| INVALID\_LABEL | The given label is not valid. It must be a non-empty string starting and ending with a letter or a digit and contain only letters, digits, or hyphens. |
+| NOT\_AUTHORIZED | The current sender is not the current record owner. |
+| INVALID\_LABEL | The given label is not valid. It must be a non-empty string containing only lower-case letters, digits, or hyphens and cannot start nor end with a hyphen. |
 
 ### Contract: NameRegistry.UpdatedRecord
 
@@ -154,12 +154,12 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| RECORD\_NOT\_FOUND | There is no domain record for the specified name. |
-| NOT\_AUTHORIZED | The current sender is not the record owner. |
+| RECORD\_NOT\_FOUND | There is no domain record for the specified **name**. |
+| NOT\_AUTHORIZED | The current sender is not the current record owner. |
 
 ### Contract: NameRegistry.UpdateReverseRecord
 
-Updates an existing reverse record. The current sender must be its owner.
+Updates an existing reverse record. The current sender must be its owner. There must be a corresponding domain record.
 
 Entrypoint: `claim_reverse_record`
 
@@ -195,5 +195,6 @@ TBD
 | :--- | :--- |
 | AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
 | RECORD\_NOT\_FOUND | There is no reverse record for the specified address. |
-| NOT\_AUTHORIZED | The current sender is not the record owner. |
+| NOT\_AUTHORIZED | The current sender is not the current record owner. |
+| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified name or it resolves to a different address different. This can occur only if the name is specified. |
 

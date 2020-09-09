@@ -71,6 +71,7 @@ TBD
 | COMMITMENT\_TOO\_OLD | The commitment is too old \(older than configured age\). Try recreating it again. |
 | COMMITMENT\_TOO\_RECENT | The commitment is too recent \(younger than configured age\). Wait for some time. |
 | LABEL\_NOT\_AVAILABLE | The requested label already exists and it is not expired. |
+| INVALID\_LABEL | The given label is not valid. It must be a non-empty string containing only lower-case letters, digits, or hyphens and cannot start nor end with a hyphen. |
 | DURATION\_TOO\_LOW | The requested duration is too low \(lower than the configured minimum\). |
 | AMOUNT\_TOO\_LOW | The transferred amount is lower than the actual price. |
 | ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred amount is higher than the actual price.~~ |
