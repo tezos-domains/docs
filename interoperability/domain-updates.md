@@ -1,4 +1,4 @@
-# Updating NameRegistry
+# Domain Updates
 
 ### Contract: NameRegistry.SetChildRecord
 
@@ -39,7 +39,7 @@ TBD
 {% endtab %}
 {% endtabs %}
 
-The call will fail in the following cases:
+The call will **fail** in the following cases:
 
 * the label fails validation
 * parent node does not exist
