@@ -2,7 +2,7 @@
 
 ### Contract: TLDRegistrar.Commit
 
-Creates commitment to buy second-level domain without disclosing actual name. This is implemented according to [Commitment scheme](https://en.wikipedia.org/wiki/Commitment_scheme).
+Creates a commitment to buy a second-level domain without disclosing the actual name. This is implemented according to the [Commitment scheme](https://en.wikipedia.org/wiki/Commitment_scheme).
 
 Entrypoint: `commit`
 
@@ -29,11 +29,11 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
-| AMOUNT\_NOT\_ZERO | Amount of _tez_ provided by sender is not zero. |
+| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
 
 ### Contract: TLDRegistrar.Buy
 
-Buys second-level domain based on previous commitment \(see above\).
+Buys a second-level domain based on previous commitment \(see above\).
 
 Entrypoint: `buy`
 
@@ -66,14 +66,14 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
-| AMOUNT\_NOT\_ZERO | Amount of _tez_ provided by sender is not zero. |
+| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
 | COMMITMENT\_DOES\_NOT\_EXIST | Corresponding commitment \(see above\) was not created before. |
 | COMMITMENT\_TOO\_OLD | The commitment is too old \(older than configured age\). Try recreating it again. |
 | COMMITMENT\_TOO\_RECENT | The commitment is too recent \(younger than configured age\). Wait for some time. |
-| LABEL\_NOT\_AVAILABLE | Requested label already exists and it is not expired. |
-| DURATION\_TOO\_LOW | Requested duration is too low \(lower than configured minimum\). |
-| AMOUNT\_TOO\_LOW | Transferred amount is lower than actual price. |
-| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~Transferred amount is higher than actual price.~~ |
+| LABEL\_NOT\_AVAILABLE | The requested label already exists and it is not expired. |
+| DURATION\_TOO\_LOW | The requested duration is too low \(lower than the configured minimum\). |
+| AMOUNT\_TOO\_LOW | The transferred amount is lower than actual price. |
+| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred amount is higher than the actual price.~~ |
 
 ### Contract: TLDRegistrar.Renew
 
@@ -108,10 +108,10 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
-| AMOUNT\_NOT\_ZERO | Amount of _tez_ provided by sender is not zero. |
-| LABEL\_NOT\_EXIST | Requested label does not exist. |
+| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
+| LABEL\_NOT\_EXIST | The requested label does not exist. |
 | LABEL\_EXPIRED | Request label exists but it is expired. Therefore it can be bought, not renewed. |
-| DURATION\_TOO\_LOW | Requested duration is too low \(lower than configured minimum\). |
-| AMOUNT\_TOO\_LOW | Transferred amount is lower than actual price. |
-| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~Transferred amount is higher than actual price.~~ |
+| DURATION\_TOO\_LOW | The requested duration is too low \(lower than the configured minimum\). |
+| AMOUNT\_TOO\_LOW | The transferred amount is lower than the actual price. |
+| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred amount is higher than the actual price.~~ |
 
