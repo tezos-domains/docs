@@ -8,7 +8,7 @@ Entrypoint: `commit`
 
 | Parameter Type | Description |
 | :--- | :--- |
-| `bytes` | SHA-512 hash of a packed tuple of **label** and **owner** corresponding to intended buy \(see below\). |
+| `bytes` | SHA-512 hash of a packed tuple of **label** and **owner** corresponding to intended buy \(see [TLDRegistrar.Buy](buys-and-renewals.md#contract-tldregistrar-buy)\). |
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
@@ -33,7 +33,7 @@ TBD
 
 ### Contract: TLDRegistrar.Buy
 
-Buys a second-level domain based on previous commitment \(see above\).
+Buys a second-level domain based on previous commitment \(see [TLDRegistrar.Commit](buys-and-renewals.md#contract-tldregistrar-commit)\).
 
 Entrypoint: `buy`
 
@@ -67,12 +67,12 @@ TBD
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
 | AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| COMMITMENT\_DOES\_NOT\_EXIST | Corresponding commitment \(see above\) was not created before. |
+| COMMITMENT\_DOES\_NOT\_EXIST | Corresponding commitment \(see [TLDRegistrar.Commit](buys-and-renewals.md#contract-tldregistrar-commit)\) was not created before. |
 | COMMITMENT\_TOO\_OLD | The commitment is too old \(older than configured age\). Try recreating it again. |
 | COMMITMENT\_TOO\_RECENT | The commitment is too recent \(younger than configured age\). Wait for some time. |
 | LABEL\_NOT\_AVAILABLE | The requested label already exists and it is not expired. |
 | DURATION\_TOO\_LOW | The requested duration is too low \(lower than the configured minimum\). |
-| AMOUNT\_TOO\_LOW | The transferred amount is lower than actual price. |
+| AMOUNT\_TOO\_LOW | The transferred amount is lower than the actual price. |
 | ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred amount is higher than the actual price.~~ |
 
 ### Contract: TLDRegistrar.Renew
