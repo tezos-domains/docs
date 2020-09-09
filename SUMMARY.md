@@ -7,7 +7,11 @@
 * [Smart Contract Overview](design-document/smart-contract-overview.md)
 * [Top-Level Domain Registrar](design-document/top-level-domain-registrar.md)
 * [Ownership Scheme](design-document/ownership-overview.md)
-* [Interoperability](design-document/interoperability.md)
+
+## Interoperability
+
+* [Proxy Contracts](interoperability/proxy-contracts.md)
+* [Name Resolution](interoperability/interoperability.md)
 
 ## Deployed Contracts
 

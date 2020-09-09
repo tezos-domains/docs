@@ -1,37 +1,4 @@
-# Interoperability
-
-## Proxy Contracts
-
-To ensure future upgradeability while allowing clients to rely on fixed contract addresses, we offer a set of proxy contracts. Any 3rd-party contract can interact with them directly - the transactions are automatically routed to the correct destination.
-
-You can find the addresses of the proxy contracts in the [Deployed Contracts](../deployed-contracts/carthagenet.md) section.
-
-### Finding the Underlying Contract
-
-Off-chain clients will often need to read data from an underlying contract. They can retrieve the individual addresses of underlying contracts from the proxy contract's storage. The generic storage structure follows:
-
-_CameLIGO**:**_
-
-```ocaml
-type proxy_storage = {
-    contract: address;
-
-    (* ... more fields outside of this interoperability spec *)
-}
-```
-
-_Michelson**:**_
-
-```text
-storage (pair
-    (address %contract)
-    (
-        # ... more fields outside of this interoperability spec
-    )
-);
-```
-
-_Note: Off-chain clients **must not** rely on a particular storage layout. They should always use annotations to find the correct value._
+# Name Resolution
 
 ## NameRegistry
 
@@ -41,8 +8,8 @@ The `NameRegistry` contract provides forward and reverse resolution.
 
 Clients retrieve the current address of `NameRegistry` by reading it from the storage of the proxy contract `NameRegistry.CheckAddress` \(as explained above\). The `NameRegistry` contract has the following storage structure:
 
-_CameLIGO**:**_
-
+{% tabs %}
+{% tab title="CameLIGO" %}
 ```ocaml
 type record = {
     (* The optional address the record resolves to *)
@@ -88,14 +55,47 @@ type storage = {
     (* ... more fields outside of this interoperability spec *)
 }
 ```
+{% endtab %}
 
-_Michelson**:**_
-
+{% tab title="Michelson" %}
 ```text
-TBD
+storage
+    (pair
+        (pair
+            (big_map %expiry_map bytes timestamp)
+            (pair
+                (big_map %records bytes
+                      (pair
+                            (pair
+                                  (pair (option %address address)
+                                        (map %data string bytes))
+                                  (pair (option %expiry_key bytes)
+                                          (nat %level))
+                            )
+                            (pair (address %owner)
+                                  (option %validator nat)
+                            )
+                      )
+                )
+                (big_map %reverse_records address
+                    (pair
+                        (pair (map %data string bytes)
+                              (option %name bytes)
+                        )
+                        (address %owner)
+                    )
+                )
+            )
+        )
+        (
+            # ... more fields outside of this interoperability spec
+        )
+    )
 ```
+{% endtab %}
+{% endtabs %}
 
-_Note: Clients **must not** rely on a particular storage or record layout. They should always use annotations to find the correct value._
+_Note: Clients **must not** rely on particular storage or record layout. They should always use annotations to find the correct value._
 
 #### Forward Resolution \(name to address\)
 
@@ -121,8 +121,8 @@ The resolution algorithm is as follows:
 
 Both on-chain and off-chain clients can do this by calling the `check_address` entry-point on `NameRegistry.CheckAddress`. 
 
-_CameLIGO**:**_
-
+{% tabs %}
+{% tab title="CameLIGO" %}
 ```ocaml
 type check_address_param = {
     (* UTF-8 encoded name *)
@@ -135,15 +135,17 @@ type check_address_param = {
 (* Checks that a name corresponds to an address. *)
 | Check_address of check_address_param michelson_pair_left_comb
 ```
+{% endtab %}
 
-_Michelson**:**_
-
+{% tab title="Michelson" %}
 ```text
 parameter (or
     (pair %check_address (bytes %name) (address %address)
     # ... more endpoints outside of this interoperability spec
 );
 ```
+{% endtab %}
+{% endtabs %}
 
 The transaction will either do nothing \(if the address is indeed correct\) or fail with the message `NAME_ADDRESS_MISMATCH` if the address is incorrect.
 
