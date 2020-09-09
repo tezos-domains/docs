@@ -117,7 +117,7 @@ The resolution algorithm is as follows:
 
 ### Instructions for Contracts
 
-**Resolution of names by contracts is currently not supported.** That being said, sometimes it can be useful to validate on-chain that a name corresponds to an address for security purposes. For example, a wallet might group a transaction sending money with another transaction that performs this check. If the check fails, both transactions fail and no money changes hands.
+**The resolution of names by contracts is currently not supported.** Sometimes, it can be useful to validate on-chain that a name corresponds to an address. For example, a wallet might group a transaction sending money with another transaction that performs this check. If the check fails, both transactions fail and no money changes hands.
 
 Both on-chain and off-chain clients can do this by calling the `check_address` entry-point on `NameRegistry.CheckAddress`. 
 
