@@ -2,13 +2,13 @@
 
 * [Introduction](README.md)
 
-## Design Document Proposal <a id="design-document"></a>
+## Smart Contract Design <a id="design-document"></a>
 
 * [Smart Contract Overview](design-document/smart-contract-overview.md)
 * [Top-Level Domain Registrar](design-document/top-level-domain-registrar.md)
 * [Ownership Scheme](design-document/ownership-overview.md)
 
-## Interoperability
+## Contract Interoperability <a id="interoperability"></a>
 
 * [Proxy Contracts](interoperability/proxy-contracts.md)
 * [Name Resolution](interoperability/interoperability.md)

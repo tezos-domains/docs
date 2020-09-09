@@ -95,7 +95,9 @@ storage
 {% endtab %}
 {% endtabs %}
 
-_Note: Clients **must not** rely on particular storage or record layout. They should always use annotations to find the correct value._
+{% hint style="warning" %}
+Clients **must not** rely on particular storage or record layout. They should always use annotations to find the correct value.
+{% endhint %}
 
 #### Forward Resolution \(name to address\)
 

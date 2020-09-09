@@ -31,5 +31,7 @@ storage (pair
 {% endtab %}
 {% endtabs %}
 
-_Note: Off-chain clients **must not** rely on a particular storage layout. They should always use annotations to find the correct value._
+{% hint style="warning" %}
+Off-chain clients **must not** rely on a particular storage layout. They should always use annotations to find the correct value.
+{% endhint %}
 
