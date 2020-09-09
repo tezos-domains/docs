@@ -8,8 +8,8 @@ You can find the addresses of the proxy contracts in the [Deployed Contracts](..
 
 Off-chain clients will often need to read data from an underlying contract. They can retrieve the individual addresses of underlying contracts from the proxy contract's storage. The generic storage structure follows:
 
-_CameLIGO**:**_
-
+{% tabs %}
+{% tab title="CameLIGO" %}
 ```ocaml
 type proxy_storage = {
     contract: address;
@@ -17,9 +17,9 @@ type proxy_storage = {
     (* ... more fields outside of this interoperability spec *)
 }
 ```
+{% endtab %}
 
-_Michelson**:**_
-
+{% tab title="Michelson" %}
 ```text
 storage (pair
     (address %contract)
@@ -28,6 +28,8 @@ storage (pair
     )
 );
 ```
+{% endtab %}
+{% endtabs %}
 
 _Note: Off-chain clients **must not** rely on a particular storage layout. They should always use annotations to find the correct value._
 
