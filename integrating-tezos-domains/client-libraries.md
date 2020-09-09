@@ -1,9 +1,9 @@
 # Client Libraries
 
-We built a set of client libraries on top of [taquito](https://tezostaquito.io/) to help wallets and other services integrate with Tezos Domains. To learn more and get started check out the [api documentation](https://client-docs.tezos.domains/).
+We built a set of client libraries on top of [Taquito](https://tezostaquito.io/) to help wallets and other services integrate with Tezos Domains. To learn more and get started check out the [API documentation](https://client-docs.tezos.domains/).
 
 {% hint style="info" %}
-The packages are written in typescript. If you are using a different language, or not using taquito, you will need to write your own integration logic.
+The packages are written in typescript. If you are using a different language, or not using Taquito, you will need to write your own integration logic.
 {% endhint %}
 
 On a high level we split the functionality into multiple packages.
