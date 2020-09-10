@@ -115,7 +115,7 @@ TBD
 | AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
 | PARENT\_NOT\_FOUND | There is no record for the specified **parent** domain. |
 | NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
-| INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-updates.md#label-validation). |
+| INVALID\_LABEL | The given **label** is not valid. See [Label Validation](.tez-tld.md#label-validation-for-tez). |
 
 ### Contract: NameRegistry.UpdatedRecord
 
@@ -197,8 +197,4 @@ TBD
 | RECORD\_NOT\_FOUND | There is no reverse record with the specified **address**. |
 | NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
 | NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to a different **address** different. This can occur only if the **name** is specified. |
-
-### Label Validation
-
-A domain name consists of labels joined with a dot. A label must be a non-empty string containing only lower-case letters, digits, or hyphens and cannot start nor end with a hyphen.
 

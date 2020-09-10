@@ -14,6 +14,7 @@
 * [Name Resolution](interoperability/interoperability.md)
 * [Buys & Renewals](interoperability/buys-and-renewals.md)
 * [Domain Updates](interoperability/domain-updates.md)
+* [.tez TLD](interoperability/.tez-tld.md)
 
 ## Deployed Contracts
 
