@@ -65,7 +65,16 @@ type claim_reverse_record_param = {
 
 {% tab title="Michelson" %}
 ```text
-TBD
+parameter (or
+  (pair %set_child_record
+    (pair
+      (pair
+        (pair (pair (bytes %label) (bytes %parent)) (option %address address))
+        (address %owner))
+      (map %data string bytes))
+    (option %expiry timestamp))
+  # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}
