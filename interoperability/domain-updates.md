@@ -25,7 +25,10 @@ type check_address_param = {
 
 {% tab title="Michelson" %}
 ```text
-TBD
+parameter (or
+    (pair %check_address (bytes %name) (address %address)
+    # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}
