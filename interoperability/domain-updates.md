@@ -208,7 +208,12 @@ type update_reverse_record_param = {
 
 {% tab title="Michelson" %}
 ```text
-TBD
+parameter (or
+  (pair %update_reverse_record
+    (pair (pair (address %address) (option %name bytes)) (address %owner))
+    (map %data string bytes)));
+  # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}
