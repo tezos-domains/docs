@@ -66,13 +66,9 @@ type claim_reverse_record_param = {
 {% tab title="Michelson" %}
 ```text
 parameter (or
-  (pair %set_child_record
-    (pair
-      (pair
-        (pair (pair (bytes %label) (bytes %parent)) (option %address address))
-        (address %owner))
-      (map %data string bytes))
-    (option %expiry timestamp))
+  (pair %claim_reverse_record
+    (pair (option %name bytes) (address %owner))
+    (map %data string bytes))
   # ... more endpoints outside of this interoperability spec
 );
 ```
@@ -117,7 +113,16 @@ type set_child_record_param = {
 
 {% tab title="Michelson" %}
 ```text
-TBD
+parameter (or
+  (pair %set_child_record
+    (pair
+      (pair
+        (pair (pair (bytes %label) (bytes %parent)) (option %address address))
+        (address %owner))
+      (map %data string bytes))
+    (option %expiry timestamp))
+  # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}
@@ -158,7 +163,12 @@ type update_record_param = {
 
 {% tab title="Michelson" %}
 ```text
-TBD
+parameter (or
+  (pair %update_record
+    (pair (pair (bytes %name) (option %address address)) (address %owner))
+    (map %data string bytes))
+  # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}
