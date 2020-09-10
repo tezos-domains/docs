@@ -29,7 +29,7 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
+| AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
 
 ### Contract: TLDRegistrar.Buy
 
@@ -39,7 +39,7 @@ Entrypoint: `buy`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **label** | `bytes` | UTF-8 encoded label of the second-level domain to buy. |
+| **label** | `bytes` | The UTF-8 encoded label of the second-level domain to buy. |
 | **duration** | `nat` | Ownership duration represented in days. |
 | **owner** | `address` | The new owner of the given domain. |
 
@@ -66,15 +66,14 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
 | COMMITMENT\_DOES\_NOT\_EXIST | Corresponding commitment \(see [TLDRegistrar.Commit](buys-and-renewals.md#contract-tldregistrar-commit)\) was not created before. |
 | COMMITMENT\_TOO\_OLD | The commitment is too old \(older than configured age\). Try recreating it again. |
 | COMMITMENT\_TOO\_RECENT | The commitment is too recent \(younger than configured age\). Wait for some time. |
-| LABEL\_NOT\_AVAILABLE | The requested label already exists and it is not expired. |
-| INVALID\_LABEL | The given label is not valid. It must be a non-empty string containing only lower-case letters, digits, or hyphens and cannot start nor end with a hyphen. |
-| DURATION\_TOO\_LOW | The requested duration is too low \(lower than the configured minimum\). |
-| AMOUNT\_TOO\_LOW | The transferred amount is lower than the actual price. |
-| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred amount is higher than the actual price.~~ |
+| LABEL\_NOT\_AVAILABLE | The requested **label** already exists and it is not expired. |
+| INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-updates.md#label-validation). |
+| DURATION\_TOO\_LOW | The requested **duration** is too low \(lower than the configured minimum\). |
+| AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
+| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred **amount** is higher than the actual price.~~ |
 
 ### Contract: TLDRegistrar.Renew
 
@@ -84,8 +83,8 @@ Entrypoint: `renew`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **label** | `bytes` | UTF-8 encoded label of the second-level domain to buy. |
-| **duration** | `nat` | Renewal duration represented in days. |
+| **label** | `bytes` | The UTF-8 encoded label of the second-level domain to buy. |
+| **duration** | `nat` | The renewal duration represented in days. |
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
@@ -109,10 +108,9 @@ TBD
 | Error | Description |
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| LABEL\_NOT\_EXIST | The requested label does not exist. |
-| LABEL\_EXPIRED | Request label exists but it is expired. Therefore it can be bought, not renewed. |
-| DURATION\_TOO\_LOW | The requested duration is too low \(lower than the configured minimum\). |
-| AMOUNT\_TOO\_LOW | The transferred amount is lower than the actual price. |
-| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred amount is higher than the actual price.~~ |
+| LABEL\_NOT\_EXIST | The requested **label** does not exist. |
+| LABEL\_EXPIRED | The requested **label** exists but it is expired. Therefore it can be bought, not renewed. |
+| DURATION\_TOO\_LOW | The specified **duration** is too low \(lower than the configured minimum\). |
+| AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
+| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred **amount** is higher than the actual price.~~ |
 

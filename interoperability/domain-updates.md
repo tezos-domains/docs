@@ -2,7 +2,7 @@
 
 ### Contract: NameRegistry.CheckAddress
 
-Checks that there is a domain record with the specified name and the address.
+Checks that there is a domain record with the specified **name** and the **address**.
 
 Entrypoint: `check_address`
 
@@ -32,12 +32,12 @@ TBD
 
 | Error | Description |
 | :--- | :--- |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| NAME\_ADDRESS\_MISMATCH | There is no corresponding domain record or it resolves to an address different from the specified one. |
+| AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
+| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to an **address** different from the specified one. |
 
 ### Contract: NameRegistry.ClaimReverseRecord
 
-Claims a reverse record corresponding to a domain \(a forward record\). The claimed reverse record will map the sender's address to the particular domain name.
+Claims a reverse record corresponding to a domain \(a forward record\). The claimed reverse record will map the **sender**'s address to the specified domain **name**.
 
 Entrypoint: `claim_reverse_record`
 
@@ -69,12 +69,12 @@ TBD
 
 | Error | Description |
 | :--- | :--- |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| NAME\_ADDRESS\_MISMATCH | There is no corresponding domain record or it resolves to an address different from the sender's address. |
+| AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
+| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to an **address** different from the **sender**'s address. |
 
 ### Contract: NameRegistry.SetChildRecord
 
-Creates or overwrites an existing domain record. The current sender must be the owner of the parent record.
+Creates or overwrites an existing domain record. The current **sender** must be the owner of the **parent** record.
 
 Entrypoint: `set_child_record`
 
@@ -112,14 +112,14 @@ TBD
 
 | Error | Description |
 | :--- | :--- |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| PARENT\_NOT\_FOUND | There is no record for the specified parent domain. |
-| NOT\_AUTHORIZED | The current sender is not the current record owner. |
-| INVALID\_LABEL | The given label is not valid. It must be a non-empty string containing only lower-case letters, digits, or hyphens and cannot start nor end with a hyphen. |
+| AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
+| PARENT\_NOT\_FOUND | There is no record for the specified **parent** domain. |
+| NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
+| INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-updates.md#label-validation). |
 
 ### Contract: NameRegistry.UpdatedRecord
 
-Updates an existing domain record. The current sender must be its owner.
+Updates an existing domain record. The current **sender** must be its owner.
 
 Entrypoint: `update_record`
 
@@ -153,13 +153,13 @@ TBD
 
 | Error | Description |
 | :--- | :--- |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
+| AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
 | RECORD\_NOT\_FOUND | There is no domain record for the specified **name**. |
-| NOT\_AUTHORIZED | The current sender is not the current record owner. |
+| NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
 
 ### Contract: NameRegistry.UpdateReverseRecord
 
-Updates an existing reverse record. The current sender must be its owner. There must be a corresponding domain record.
+Updates an existing reverse record. The current **sender** must be its owner. There must be a corresponding domain record.
 
 Entrypoint: `claim_reverse_record`
 
@@ -193,8 +193,12 @@ TBD
 
 | Error | Description |
 | :--- | :--- |
-| AMOUNT\_NOT\_ZERO | The amount of _tez_ provided by the sender is not zero. |
-| RECORD\_NOT\_FOUND | There is no reverse record for the specified address. |
-| NOT\_AUTHORIZED | The current sender is not the current record owner. |
-| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified name or it resolves to a different address different. This can occur only if the name is specified. |
+| AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
+| RECORD\_NOT\_FOUND | There is no reverse record with the specified **address**. |
+| NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
+| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to a different **address** different. This can occur only if the **name** is specified. |
+
+### Label Validation
+
+A domain name consists of labels joined with a dot. A label must be a non-empty string containing only lower-case letters, digits, or hyphens and cannot start nor end with a hyphen.
 
