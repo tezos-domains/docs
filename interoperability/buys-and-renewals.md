@@ -21,7 +21,10 @@ type commit_param = bytes
 
 {% tab title="Michelson" %}
 ```
-TBD
+parameter (or
+  (bytes %commit)
+  # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}
@@ -58,7 +61,12 @@ type buy_param = {
 
 {% tab title="Michelson" %}
 ```
-TBD
+parameter (or
+  (pair %buy
+    (pair (bytes %label) (nat %duration))
+    (address %owner))
+  # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}
@@ -100,7 +108,12 @@ type renew_param = {
 
 {% tab title="Michelson" %}
 ```
-TBD
+parameter (or
+  (pair %renew
+    (bytes %label)
+    (nat %duration))
+  # ... more endpoints outside of this interoperability spec
+);
 ```
 {% endtab %}
 {% endtabs %}

@@ -26,8 +26,10 @@ type check_address_param = {
 {% tab title="Michelson" %}
 ```text
 parameter (or
-    (pair %check_address (bytes %name) (address %address)
-    # ... more endpoints outside of this interoperability spec
+  (pair %check_address
+    (bytes %name)
+    (address %address)
+  # ... more endpoints outside of this interoperability spec
 );
 ```
 {% endtab %}
@@ -92,7 +94,7 @@ Entrypoint: `set_child_record`
 | **parent** | `bytes` | The UTF-8 encoded parent domain. |
 | **address** | `address option` | The optional address the record resolves to. |
 | **owner** | `address` | The owner of the record allowed to make changes. |
-| **data** | `(string, data_value) map` | A map of any additional data clients wish to store with the domain |
+| **data** | `(string, data_value) map` | A map of any additional data clients wish to store with the domain. |
 | **expiry** | `timestamp option` | The expiry of this record. Only applicable to second-level domains as all higher-level domains share the expiry of their ancestor 2LD. |
 
 {% tabs %}
@@ -142,7 +144,7 @@ Entrypoint: `update_record`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
-| **name** | `bytes` | The UTF-8 encoded domain of the domain to update. |
+| **name** | `bytes` | The UTF-8 encoded name of the domain to update. |
 | **address** | `address option` | The optional new address the record resolves to. |
 | **owner** | `address` | The new owner of the record allowed to make changes. |
 | **data** | `(string, data_value) map` | The new map of any additional data that clients wish to store with the domain. |
