@@ -81,7 +81,7 @@ parameter (or
 | INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-updates.md#label-validation). |
 | DURATION\_TOO\_LOW | The requested **duration** is too low \(lower than the configured minimum\). |
 | AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
-| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred **amount** is higher than the actual price.~~ |
+| AMOUNT\_TOO\_HIGH | The transferred **amount** is higher than the actual price. |
 
 ### Contract: TLDRegistrar.Renew
 
@@ -125,5 +125,5 @@ parameter (or
 | LABEL\_EXPIRED | The requested **label** exists but it is expired. Therefore it can be bought, not renewed. |
 | DURATION\_TOO\_LOW | The specified **duration** is too low \(lower than the configured minimum\). |
 | AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
-| ~~AMOUNT\_TOO\_HIGH~~ | TODO ~~The transferred **amount** is higher than the actual price.~~ |
+| AMOUNT\_TOO\_HIGH | The transferred **amount** is higher than the actual price. |
 
