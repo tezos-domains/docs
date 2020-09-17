@@ -160,7 +160,7 @@ Domain names generally have to conform to the [IDNA 2008](https://en.wikipedia.o
 The length limitations are currently:
 
 * 1 to 100 **characters** in a **single label**,
-* up to 1000 **bytes** in a **full domain name**.
+* up to 400 **bytes** in a **full domain name**.
 
 It is not necessary for clients to check length when performing lookup or reverse lookup, as the names are already validated on-chain. It is however strongly recommended to do so when creating new records to avoid transaction failures.
 
