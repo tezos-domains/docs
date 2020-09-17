@@ -19,7 +19,7 @@ Upgradeability is achieved by having:
 
 Proxy contracts provide a fixed interface that will always keep working under the same address and will be kept forward-compatible. A proxy contract can also be repointed to a new underlying contract in case of a major upgrade that requires the storage to be migrated.
 
-To optimize for gas cost, we keep only one entrypoint per proxy contract. All proxy contracts are prefixed by the name of its underlying contract \(e.g. `NameRegistry.CheckAddress` is the proxy contract that contains the `check_address` entrypoint and uses `NameRegistry` as the underlying contract\). The usage of proxy contracts by clients is further detailed in the [Interoperability](../interoperability/interoperability.md) chapter.
+To optimize for gas cost, we keep only one entrypoint per proxy contract. All proxy contracts are prefixed by the name of its underlying contract \(e.g. `NameRegistry.CheckAddress` is the proxy contract that contains the `check_address` entrypoint and uses `NameRegistry` as the underlying contract\). The usage of proxy contracts by clients is further detailed in the [Interoperability](../interoperability/name-resolution.md) chapter.
 
 ### Underlying Contracts
 
@@ -60,7 +60,7 @@ Supported **operations** on reverse records are:
 
 ## Label Validators
 
-These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](../interoperability/interoperability.md) chapter for more information about normalization and validation.
+These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](../interoperability/name-resolution.md) chapter for more information about normalization and validation.
 
 Label validators are not upgradeable by themselves. Upgradeability can be achieved by simply repointing `NameRegistry` to a new validator address.
 

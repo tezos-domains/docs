@@ -11,7 +11,7 @@
 ## Contract Interoperability <a id="interoperability"></a>
 
 * [Proxy Contracts](interoperability/proxy-contracts.md)
-* [Name Resolution](interoperability/interoperability.md)
+* [Name Resolution](interoperability/name-resolution.md)
 * [Buys & Renewals](interoperability/buys-and-renewals.md)
 * [Domain Updates](interoperability/domain-updates.md)
 * [.tez TLD](interoperability/.tez-tld.md)

@@ -103,7 +103,7 @@ Clients **must not** rely on particular storage or record layout. They should al
 
 The resolution algorithm is as follows:
 
-1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](interoperability.md#name-encode-algorithm) for more details.
+1. Normalize and validate the full domain name using the encode algorithm. See the section [Name Validation and Normalization](name-resolution.md#name-encode-algorithm) for more details.
 2. Look up the name in the `records` bigmap. If the bigmap contains no such key, the given domain is not resolvable.
 3. Use the `expiry_key` value of the record to look up the validity in the `expiry_map`. If a timestamp is found and is lower or equal to the current time, the given domain is not resolvable.
 4. Extract the optional `address` value from the record. If the optional value is `None`, the given domain is not resolvable. Otherwise use the `address` value.
