@@ -2,7 +2,7 @@
 
 ### Contract: TLDRegistrar.Commit
 
-Creates a commitment to buy a second-level domain without disclosing the actual name. This is implemented according to the [Commitment scheme](https://en.wikipedia.org/wiki/Commitment_scheme).
+Creates a commitment to buy a second-level domain without disclosing the actual name. This is implemented according to our [commit&reveal](https://en.wikipedia.org/wiki/Commitment_scheme) scheme.
 
 Entrypoint: `commit`
 
