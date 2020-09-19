@@ -38,7 +38,7 @@ parameter (or
 | Error | Description |
 | :--- | :--- |
 | AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
-| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to an **address** different from the specified one. |
+| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to an **address** different than the expected one. |
 
 ### Contract: NameRegistry.ClaimReverseRecord
 
@@ -225,5 +225,5 @@ parameter (or
 | AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
 | RECORD\_NOT\_FOUND | There is no reverse record with the specified **address**. |
 | NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
-| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to a different **address** different. This can occur only if the **name** is specified. |
+| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to a different **address**. This can occur only if the **name** is specified. |
 
