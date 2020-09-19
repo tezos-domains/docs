@@ -8,7 +8,7 @@ Entrypoint: `commit`
 
 | Parameter Type | Description |
 | :--- | :--- |
-| `bytes` | SHA-512 hash of a packed tuple of **label** and **owner** corresponding to intended buy \(see [TLDRegistrar.Buy](buys-and-renewals.md#contract-tldregistrar-buy)\). |
+| `bytes` | SHA-512 hash of a packed tuple of **label** and **owner** corresponding to the intended buy \(see [TLDRegistrar.Buy](buys-and-renewals.md#contract-tldregistrar-buy)\). |
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
