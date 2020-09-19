@@ -40,8 +40,7 @@ The top-level domains available are:
 
 | Name | Description |
 | :--- | :--- |
-| `.tez` | The standard TLD for names in Latin |
-| `.тез` | TLD for names in languages based on Cyrillic |
+| [.tez](../interoperability/.tez-tld.md) | The standard TLD for names in Latin |
 
 TLDs for more character scripts will be likely made available in the future.
 
