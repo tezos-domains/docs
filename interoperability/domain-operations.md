@@ -136,7 +136,7 @@ parameter (or
 | NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
 | INVALID\_LABEL | The given **label** is not valid. See [Label Validation](.tez-tld.md#label-validation-for-tez). |
 
-### Contract: NameRegistry.UpdatedRecord
+### Contract: NameRegistry.UpdateRecord
 
 Updates an existing domain record. The current **sender** must be its owner.
 
