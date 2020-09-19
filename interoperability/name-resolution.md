@@ -6,7 +6,7 @@ The `NameRegistry` contract provides forward and reverse resolution.
 
 ### Instructions for Off-chain Clients
 
-Clients retrieve the current address of `NameRegistry` by reading it from the storage of the proxy contract [NameRegistry.CheckAddress](domain-updates.md#contract-nameregistry-checkaddress) \(as explained in the [Proxy Contracts](proxy-contracts.md#finding-the-underlying-contract) chapter\). The `NameRegistry` contract has the following storage structure:
+Clients retrieve the current address of `NameRegistry` by reading it from the storage of the proxy contract [NameRegistry.CheckAddress](domain-operations.md#contract-nameregistry-checkaddress) \(as explained in the [Proxy Contracts](proxy-contracts.md#finding-the-underlying-contract) chapter\). The `NameRegistry` contract has the following storage structure:
 
 {% tabs %}
 {% tab title="CameLIGO" %}
@@ -143,7 +143,7 @@ type check_address_param = {
 ```text
 parameter (or
     (pair %check_address (bytes %name) (address %address)
-    # ... more endpoints outside of this interoperability spec
+    # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}

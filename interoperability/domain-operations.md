@@ -1,4 +1,4 @@
-# Domain Updates
+# Domain Operations
 
 ### Contract: NameRegistry.CheckAddress
 
@@ -29,7 +29,7 @@ parameter (or
   (pair %check_address
     (bytes %name)
     (address %address)
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}
@@ -71,7 +71,7 @@ parameter (or
   (pair %claim_reverse_record
     (pair (option %name bytes) (address %owner))
     (map %data string bytes))
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}
@@ -123,7 +123,7 @@ parameter (or
         (address %owner))
       (map %data string bytes))
     (option %expiry timestamp))
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}
@@ -169,7 +169,7 @@ parameter (or
   (pair %update_record
     (pair (pair (bytes %name) (option %address address)) (address %owner))
     (map %data string bytes))
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}
@@ -214,7 +214,7 @@ parameter (or
   (pair %update_reverse_record
     (pair (pair (address %address) (option %name bytes)) (address %owner))
     (map %data string bytes)));
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}

@@ -23,7 +23,7 @@ type commit_param = bytes
 ```
 parameter (or
   (bytes %commit)
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}
@@ -65,7 +65,7 @@ parameter (or
   (pair %buy
     (pair (bytes %label) (nat %duration))
     (address %owner))
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}
@@ -78,7 +78,7 @@ parameter (or
 | COMMITMENT\_TOO\_OLD | The commitment is too old \(older than configured age\). Try recreating it again. |
 | COMMITMENT\_TOO\_RECENT | The commitment is too recent \(younger than configured age\). Wait for some time. |
 | LABEL\_NOT\_AVAILABLE | The requested **label** already exists and it is not expired. |
-| INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-updates.md#label-validation). |
+| INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-operations.md#label-validation). |
 | DURATION\_TOO\_LOW | The requested **duration** is too low \(lower than the configured minimum\). |
 | AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
 | AMOUNT\_TOO\_HIGH | The transferred **amount** is higher than the actual price. |
@@ -112,7 +112,7 @@ parameter (or
   (pair %renew
     (bytes %label)
     (nat %duration))
-  # ... more endpoints outside of this interoperability spec
+  # ... more entrypoints outside of this interoperability spec
 );
 ```
 {% endtab %}

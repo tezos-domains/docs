@@ -13,7 +13,7 @@
 * [Proxy Contracts](interoperability/proxy-contracts.md)
 * [Name Resolution](interoperability/name-resolution.md)
 * [Buys & Renewals](interoperability/buys-and-renewals.md)
-* [Domain Updates](interoperability/domain-updates.md)
+* [Domain Operations](interoperability/domain-operations.md)
 * [.tez TLD](interoperability/.tez-tld.md)
 
 ## Deployed Contracts
