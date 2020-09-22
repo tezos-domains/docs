@@ -55,16 +55,16 @@ Reverse records represent mapping of addresses to their names. Reverse records a
 Supported **operations** on reverse records are:
 
 * resolving an address and returning the resolved name via callback,
-* claiming records for the sender \(and removing previous owner\),
+* claiming records for the sender \(and removing the previous owner\),
 * updating records.
 
 ## Label Validators
 
-These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provides a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](../interoperability/name-resolution.md) chapter for more information about normalization and validation.
+These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provide a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](../interoperability/name-resolution.md) chapter for more information about normalization and validation.
 
 Label validators are not upgradeable by themselves. Upgradeability can be achieved by simply repointing `NameRegistry` to a new validator address.
 
 ## TLDRegistrar
 
-This upgradeable smart contract is responsible for managing the top-level domains. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contact are available in the [next chapter](top-level-domain-registrar.md).
+This upgradeable smart contract is responsible for managing the top-level domains. It keeps track of registered second-level domains, their owners, and expiration times. More details on the smart contract are available in the [next chapter](top-level-domain-registrar.md).
 
