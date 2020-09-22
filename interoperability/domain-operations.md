@@ -2,7 +2,7 @@
 
 ### Contract: NameRegistry.CheckAddress
 
-Checks that there is a domain record with the specified **name** and the **address**.
+Checks that there is a valid domain record with the specified **name** and the **address**.
 
 Entrypoint: `check_address`
 
@@ -38,7 +38,7 @@ parameter (or
 | Error | Description |
 | :--- | :--- |
 | AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
-| NAME\_ADDRESS\_MISMATCH | There is no domain record with the specified **name** or it resolves to an **address** different from the expected one. |
+| NAME\_ADDRESS\_MISMATCH | There is no valid domain record with the specified **name** or it resolves to an **address** different from the expected one. |
 
 ### Contract: NameRegistry.ClaimReverseRecord
 
