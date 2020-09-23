@@ -50,7 +50,7 @@ Entrypoint: `claim_reverse_record`
 | :--- | :--- | :--- |
 | **name** | `bytes` | The UTF-8 encoded name to claim. |
 | **owner** | `address` | The owner of the record allowed to make changes. |
-| **data** | `(string, data_value) map` | The map of any additional data that clients wish to store with the record. |
+| **data** | `(string, bytes) map` | The map of any additional data that clients wish to store with the record. |
 
 {% tabs %}
 {% tab title="CameLIGO" %}
@@ -58,7 +58,7 @@ Entrypoint: `claim_reverse_record`
 type claim_reverse_record_param = {
     name: bytes option;
     owner: address;
-    data: (string, data_value) map;
+    data: (string, bytes) map;
 }
 
 | Claim_reverse_record of claim_reverse_record_param michelson_pair_left_comb
@@ -94,7 +94,7 @@ Entrypoint: `set_child_record`
 | **parent** | `bytes` | The UTF-8 encoded parent domain. |
 | **address** | `address option` | The optional address the record resolves to. |
 | **owner** | `address` | The owner of the record allowed to make changes. |
-| **data** | `(string, data_value) map` | A map of any additional data clients wish to store with the domain. |
+| **data** | `(string, bytes) map` | A map of any additional data clients wish to store with the domain. |
 | **expiry** | `timestamp option` | The expiry of this record. Only applicable to second-level domains as all higher-level domains share the expiry of their ancestor 2LD. |
 
 {% tabs %}
@@ -105,7 +105,7 @@ type set_child_record_param = {
     parent: bytes;
     address: address option;
     owner: address;
-    data: (string, data_value) map;
+    data: (string, bytes) map;
     expiry: timestamp option
 }
 
@@ -147,7 +147,7 @@ Entrypoint: `update_record`
 | **name** | `bytes` | The UTF-8 encoded name of the domain to update. |
 | **address** | `address option` | The optional new address the record resolves to. |
 | **owner** | `address` | The new owner of the record allowed to make changes. |
-| **data** | `(string, data_value) map` | The new map of any additional data that clients wish to store with the domain. |
+| **data** | `(string, bytes) map` | The new map of any additional data that clients wish to store with the domain. |
 
 {% tabs %}
 {% tab title="CameLIGO" %}
@@ -156,7 +156,7 @@ type update_record_param = {
     name: bytes;
     address: address option;
     owner: address;
-    data: (string, data_value) map;
+    data: (string, bytes) map;
 }
 
 | Update_record of update_record_param michelson_pair_left_comb
@@ -192,7 +192,7 @@ Entrypoint: `claim_reverse_record`
 | **address** | `address` | The address of the reverse record to update. |
 | **name** | `bytes option` | The new UTF-8 encoded name the record resolves to. |
 | **owner** | `address` | The owner of the record allowed to make changes. |
-| **data** | `(string, data_value) map` | The map of any additional data that clients wish to store with the record. |
+| **data** | `(string, bytes) map` | The map of any additional data that clients wish to store with the record. |
 
 {% tabs %}
 {% tab title="CameLIGO" %}
@@ -201,7 +201,7 @@ type update_reverse_record_param = {
     address: address;
     name: bytes option;
     owner: address;
-    data: (string, data_value) map;
+    data: (string, bytes) map;
 }
 
 | Update_reverse_record of update_reverse_record_param michelson_pair_left_comb

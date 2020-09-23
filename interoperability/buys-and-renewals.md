@@ -15,7 +15,7 @@ Entrypoint: `commit`
 ```ocaml
 type commit_param = bytes
 
-| Commit of commit_param
+| Commit of bytes
 ```
 {% endtab %}
 
