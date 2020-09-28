@@ -45,6 +45,8 @@ Entrypoint: `buy`
 | **label** | `bytes` | The UTF-8 encoded label of the second-level domain to buy. |
 | **duration** | `nat` | Ownership duration represented in days. |
 | **owner** | `address` | The new owner of the given domain. |
+| **address** | `address option` | The optional address the given domain resolves to. |
+| **data** | `(string, bytes) map` | A map of any additional data clients wish to store with the given domain. |
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
@@ -52,7 +54,9 @@ Entrypoint: `buy`
 type buy_param = {
     label: bytes;
     duration: nat;
-    owner: address
+    owner: address;
+    address: address option;
+    data: (string, bytes) map;
 }
 
 | Buy of buy_param michelson_pair_left_comb
@@ -63,8 +67,12 @@ type buy_param = {
 ```
 parameter (or
   (pair %buy
-    (pair (bytes %label) (nat %duration))
-    (address %owner))
+    (pair
+      (pair
+        (pair (bytes %label) (nat %duration))
+        (address %owner))
+      (address option %address))
+    (map %data string bytes))
   # ... more entrypoints outside of this interoperability spec
 );
 ```
@@ -99,7 +107,7 @@ Entrypoint: `renew`
 ```ocaml
 type renew_param = {
     label: bytes;
-    duration: nat
+    duration: nat;
 }
 
 | Renew of renew_param michelson_pair_left_comb

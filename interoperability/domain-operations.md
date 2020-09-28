@@ -16,7 +16,7 @@ Entrypoint: `check_address`
 ```ocaml
 type check_address_param = {
     name: bytes;
-    address: address
+    address: address;
 }
 
 | Check_address of check_address_param michelson_pair_left_comb
@@ -106,7 +106,7 @@ type set_child_record_param = {
     address: address option;
     owner: address;
     data: (string, bytes) map;
-    expiry: timestamp option
+    expiry: timestamp option;
 }
 
 | Set_child_record of set_child_record_param michelson_pair_left_comb
