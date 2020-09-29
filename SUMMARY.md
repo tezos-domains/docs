@@ -19,6 +19,7 @@
 ## Deployed Contracts
 
 * [Carthagenet](deployed-contracts/carthagenet.md)
+* [Delphinet](deployed-contracts/delphinet.md)
 
 ## Integrating Tezos Domains
 
