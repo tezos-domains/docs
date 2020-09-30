@@ -1,3 +1,7 @@
+---
+description: Addresses of deployed Smart Contracts
+---
+
 # Delphinet
 
 | Contract | Address | BCD |

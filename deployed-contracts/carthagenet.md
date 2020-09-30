@@ -1,3 +1,7 @@
+---
+description: Addresses of deployed Smart Contracts
+---
+
 # Carthagenet
 
 | Contract | Address | BCD |
@@ -12,4 +16,6 @@
 | **TLDRegistrar.Renew** | `KT1H4q441PEh1oryHm5E32Fn3NTBCYkmC5W7` | [🔗](https://better-call.dev/carthagenet/KT1H4q441PEh1oryHm5E32Fn3NTBCYkmC5W7) |
 | **TLDRegistrar.Commit** | `KT19Anf7UUDmMRLzAXN624Z8gWe5KhVPp7vT` | [🔗](https://better-call.dev/carthagenet/KT19Anf7UUDmMRLzAXN624Z8gWe5KhVPp7vT) |
 | **TLDRegistrar** | _resolve from **TLDRegistrar.Buy**_ | [🔗](https://better-call.dev/carthagenet/KT1G6LK6iavaWsAHTmTy3zPAF5N8qN3RLHM4) |
+
+
 
