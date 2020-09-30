@@ -7,7 +7,7 @@ description: Addresses of deployed Smart Contracts
 | Contract | Address | BCD |
 | :--- | :--- | :--- |
 | **NameRegistry.CheckAddress** | `KT1KG53Q4hgwRj9qNTTuWD6iRnCC9f3h6pXa` | [🔗](https://better-call.dev/delphinet/KT1KG53Q4hgwRj9qNTTuWD6iRnCC9f3h6pXa) |
-| **NameRegistry.SetChildRecord** | `KT1UJGJzYUdvVzdeNiy8vnxavuTGBufXEPAq` | [🔗](https://better-call.dev/delphinet/KT1UJGJzYUdvVzdeNiy8vnxavuTGBufXEPAq) |
+| **NameRegistry.SetChildRecord** | `KT1BNcjCYXRcgCQMTu23ihf8kgD5KL7mKdxS` | [🔗](https://better-call.dev/delphinet/KT1BNcjCYXRcgCQMTu23ihf8kgD5KL7mKdxS) |
 | **NameRegistry.UpdateRecord** | `KT1UJGJzYUdvVzdeNiy8vnxavuTGBufXEPAq` | [🔗](https://better-call.dev/delphinet/KT1UJGJzYUdvVzdeNiy8vnxavuTGBufXEPAq) |
 | **NameRegistry.ClaimReverseRecord** | `KT1Bc1GH1NxbuFigZ4MKhPKAK5xmbpKRHedV` | [🔗](https://better-call.dev/delphinet/KT1Bc1GH1NxbuFigZ4MKhPKAK5xmbpKRHedV) |
 | **NameRegistry.UpdateReverseRecord** | `KT1UJaxt3xpGGXZMKAxiw3QWZ7VbFCDVprTP` | [🔗](https://better-call.dev/delphinet/KT1UJaxt3xpGGXZMKAxiw3QWZ7VbFCDVprTP) |
