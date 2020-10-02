@@ -8,12 +8,14 @@ description: >-
 
 You can read our post series on Designing a Name Service on [Medium ](https://medium.com/tezos-name-service)or discuss with us on Tezos Agora
 
-* [Part 1: Introduction](https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874)
-* [Part 2: Namespace and Structure](https://forum.tezosagora.org/t/designing-a-name-service-part-2-namespace-and-structure/1901)
-* [Part 3: Name Distribution and Pricing](https://forum.tezosagora.org/t/designing-a-name-service-part-3-name-distribution-and-pricing/1914)
-* [Part 4: Validation, Normalization, Encoding](https://forum.tezosagora.org/t/designing-a-name-service-part-4-validation-normalization-encoding/1915)
-* [Part 5: Retaining Trademarks](https://forum.tezosagora.org/t/designing-a-name-service-part-5-retaining-trademarks/1931)
+* [Tezos Domains Alpha Release](https://forum.tezosagora.org/t/tezos-domains-developer-preview/2057)
 * [Introducing Tezos Domains](https://forum.tezosagora.org/t/introducing-tezos-domains/1985)
+* Our older articles exploring the idea in detail:
+  * [Part 1: Introduction](https://forum.tezosagora.org/t/designing-a-name-service-part-1-introduction/1874)
+  * [Part 2: Namespace and Structure](https://forum.tezosagora.org/t/designing-a-name-service-part-2-namespace-and-structure/1901)
+  * [Part 3: Name Distribution and Pricing](https://forum.tezosagora.org/t/designing-a-name-service-part-3-name-distribution-and-pricing/1914)
+  * [Part 4: Validation, Normalization, Encoding](https://forum.tezosagora.org/t/designing-a-name-service-part-4-validation-normalization-encoding/1915)
+  * [Part 5: Retaining Trademarks](https://forum.tezosagora.org/t/designing-a-name-service-part-5-retaining-trademarks/1931)
 
 ## Motivation
 
