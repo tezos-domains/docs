@@ -8,7 +8,7 @@ description: Addresses of deployed Smart Contracts
 | :--- | :--- | :--- |
 | **NameRegistry.CheckAddress** | `KT1P59fCE4fUJEDKnSH2REvJuB1Uixnc9AFe` | [🔗](https://better-call.dev/delphinet/KT1P59fCE4fUJEDKnSH2REvJuB1Uixnc9AFe) |
 | **NameRegistry.SetChildRecord** | `KT1Ew5ui1D53sAv25qbN78AWsLS6RxGtdpW4` | [🔗](https://better-call.dev/delphinet/KT1Ew5ui1D53sAv25qbN78AWsLS6RxGtdpW4) |
-| **NameRegistry.UpdateRecord** | `KT1Rsk521kMfDDQuNxrnt8SnxbQvcPf3j1Gv` | [🔗](https://better-call.dev/delphinet/KT1Rsk521kMfDDQuNxrnt8SnxbQvcPf3j1G) |
+| **NameRegistry.UpdateRecord** | `KT1Rsk521kMfDDQuNxrnt8SnxbQvcPf3j1Gv` | [🔗](https://better-call.dev/delphinet/KT1Rsk521kMfDDQuNxrnt8SnxbQvcPf3j1Gv) |
 | **NameRegistry.ClaimReverseRecord** | `KT1G1iNPNh8nPHTAyNRi2ez7yRhxNHRng6A2` | [🔗](https://better-call.dev/delphinet/KT1G1iNPNh8nPHTAyNRi2ez7yRhxNHRng6A2) |
 | **NameRegistry.UpdateReverseRecord** | `KT1MvLNnHAPZwZzTVrG6KBPu91b1At1wsBjm` | [🔗](https://better-call.dev/delphinet/KT1MvLNnHAPZwZzTVrG6KBPu91b1At1wsBjm) |
 | **NameRegistry** | _resolve from **NameRegistry.CheckAddress**_ | [🔗](https://better-call.dev/delphinet/KT1CR6vXJ1qeY4ALDQfUaLFi3FcJJZ8WDygo) |
