@@ -6,14 +6,14 @@ description: Addresses of deployed Smart Contracts
 
 | Contract | Address | BCD |
 | :--- | :--- | :--- |
-| **NameRegistry.CheckAddress** | `KT1KG53Q4hgwRj9qNTTuWD6iRnCC9f3h6pXa` | [🔗](https://better-call.dev/delphinet/KT1KG53Q4hgwRj9qNTTuWD6iRnCC9f3h6pXa) |
-| **NameRegistry.SetChildRecord** | `KT1BNcjCYXRcgCQMTu23ihf8kgD5KL7mKdxS` | [🔗](https://better-call.dev/delphinet/KT1BNcjCYXRcgCQMTu23ihf8kgD5KL7mKdxS) |
-| **NameRegistry.UpdateRecord** | `KT1UJGJzYUdvVzdeNiy8vnxavuTGBufXEPAq` | [🔗](https://better-call.dev/delphinet/KT1UJGJzYUdvVzdeNiy8vnxavuTGBufXEPAq) |
-| **NameRegistry.ClaimReverseRecord** | `KT1Bc1GH1NxbuFigZ4MKhPKAK5xmbpKRHedV` | [🔗](https://better-call.dev/delphinet/KT1Bc1GH1NxbuFigZ4MKhPKAK5xmbpKRHedV) |
-| **NameRegistry.UpdateReverseRecord** | `KT1UJaxt3xpGGXZMKAxiw3QWZ7VbFCDVprTP` | [🔗](https://better-call.dev/delphinet/KT1UJaxt3xpGGXZMKAxiw3QWZ7VbFCDVprTP) |
-| **NameRegistry** | _resolve from **NameRegistry.CheckAddress**_ | [🔗](https://better-call.dev/delphinet/KT1T2PLafSDtZkC4aSUrVNaRuq1Cp3m1NUNb) |
-| **TLDRegistrar.Buy** | `KT1PXC5DW7AQesEpiEdS2z7rUM7PfLPwDHoW` | [🔗](https://better-call.dev/delphinet/KT1PXC5DW7AQesEpiEdS2z7rUM7PfLPwDHoW) |
-| **TLDRegistrar.Renew** | `KT1JU8KmwrpexBZfVCghLAZHg8uj5DwSXBqv` | [🔗](https://better-call.dev/delphinet/KT1JU8KmwrpexBZfVCghLAZHg8uj5DwSXBqv) |
-| **TLDRegistrar.Commit** | `KT1ECrhpceLzhr1vcdjydbwANboaN28jx5YG` | [🔗](https://better-call.dev/delphinet/KT1ECrhpceLzhr1vcdjydbwANboaN28jx5YG) |
-| **TLDRegistrar** | _resolve from **TLDRegistrar.Buy**_ | [🔗](https://better-call.dev/delphinet/KT1TQG3nK1pFyy5fzJRaq3dZkW1rwK92D1DX) |
+| **NameRegistry.CheckAddress** | `KT1P59fCE4fUJEDKnSH2REvJuB1Uixnc9AFe` | [🔗](https://better-call.dev/delphinet/KT1P59fCE4fUJEDKnSH2REvJuB1Uixnc9AFe) |
+| **NameRegistry.SetChildRecord** | `KT1Ew5ui1D53sAv25qbN78AWsLS6RxGtdpW4` | [🔗](https://better-call.dev/delphinet/KT1Ew5ui1D53sAv25qbN78AWsLS6RxGtdpW4) |
+| **NameRegistry.UpdateRecord** | `KT1Rsk521kMfDDQuNxrnt8SnxbQvcPf3j1Gv` | [🔗](https://better-call.dev/delphinet/KT1Rsk521kMfDDQuNxrnt8SnxbQvcPf3j1G) |
+| **NameRegistry.ClaimReverseRecord** | `KT1G1iNPNh8nPHTAyNRi2ez7yRhxNHRng6A2` | [🔗](https://better-call.dev/delphinet/KT1G1iNPNh8nPHTAyNRi2ez7yRhxNHRng6A2) |
+| **NameRegistry.UpdateReverseRecord** | `KT1MvLNnHAPZwZzTVrG6KBPu91b1At1wsBjm` | [🔗](https://better-call.dev/delphinet/KT1MvLNnHAPZwZzTVrG6KBPu91b1At1wsBjm) |
+| **NameRegistry** | _resolve from **NameRegistry.CheckAddress**_ | [🔗](https://better-call.dev/delphinet/KT1CR6vXJ1qeY4ALDQfUaLFi3FcJJZ8WDygo) |
+| **TLDRegistrar.Buy** | `KT1SvUM7iyTEa4TLjnonD5BiiyaLxs6j6wsn` | [🔗](https://better-call.dev/delphinet/KT1SvUM7iyTEa4TLjnonD5BiiyaLxs6j6wsn) |
+| **TLDRegistrar.Renew** | `KT1EyNFbCTLNEy7gY3XvcDgC7BZE3xs7SayR` | [🔗](https://better-call.dev/delphinet/KT1EyNFbCTLNEy7gY3XvcDgC7BZE3xs7SayR) |
+| **TLDRegistrar.Commit** | `KT1SU1UeN2CB2xQvy2b1vRPgFTTRGDj3Fq4f` | [🔗](https://better-call.dev/delphinet/KT1SU1UeN2CB2xQvy2b1vRPgFTTRGDj3Fq4f) |
+| **TLDRegistrar** | _resolve from **TLDRegistrar.Buy**_ | [🔗](https://better-call.dev/delphinet/KT19SpuzpzEV6HCVzpuJvCHmnDiUaW2NWbap/operations) |
 
