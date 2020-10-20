@@ -129,7 +129,7 @@ parameter (or
 | Error | Description |
 | :--- | :--- |
 | TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
-| LABEL\_NOT\_EXIST | The requested **label** does not exist. |
+| LABEL\_NOT\_FOUND | The requested **label** does not exist. |
 | LABEL\_EXPIRED | The requested **label** exists but it is expired. Therefore it can be bought, not renewed. |
 | DURATION\_TOO\_LOW | The specified **duration** is too low \(lower than the configured minimum\). |
 | AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
