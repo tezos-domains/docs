@@ -14,12 +14,13 @@ Entrypoint: `check_address`
 {% tabs %}
 {% tab title="CameLIGO" %}
 ```ocaml
-type check_address_param = {
+type check_address_param = [@layout:comb] {
     name: bytes;
-    address: address;
+    address: address
 }
 
-| Check_address of check_address_param michelson_pair_left_comb
+(* Checks that a name corresponds to an address. *)
+| Check_address of check_address_param
 ```
 {% endtab %}
 
@@ -55,13 +56,13 @@ Entrypoint: `claim_reverse_record`
 {% tabs %}
 {% tab title="CameLIGO" %}
 ```ocaml
-type claim_reverse_record_param = {
+type claim_reverse_record_param = [@layout:comb] {
     name: bytes option;
     owner: address;
     data: (string, bytes) map;
 }
 
-| Claim_reverse_record of claim_reverse_record_param michelson_pair_left_comb
+| Claim_reverse_record of claim_reverse_record_param
 ```
 {% endtab %}
 
@@ -100,7 +101,7 @@ Entrypoint: `set_child_record`
 {% tabs %}
 {% tab title="CameLIGO" %}
 ```ocaml
-type set_child_record_param = {
+type set_child_record_param = [@layout:comb] {
     label: bytes;
     parent: bytes;
     address: address option;
@@ -109,7 +110,7 @@ type set_child_record_param = {
     expiry: timestamp option;
 }
 
-| Set_child_record of set_child_record_param michelson_pair_left_comb
+| Set_child_record of set_child_record_param
 ```
 {% endtab %}
 
@@ -152,14 +153,14 @@ Entrypoint: `update_record`
 {% tabs %}
 {% tab title="CameLIGO" %}
 ```ocaml
-type update_record_param = {
+type update_record_param = [@layout:comb] {
     name: bytes;
     address: address option;
     owner: address;
     data: (string, bytes) map;
 }
 
-| Update_record of update_record_param michelson_pair_left_comb
+| Update_record of update_record_param
 ```
 {% endtab %}
 
@@ -197,14 +198,14 @@ Entrypoint: `claim_reverse_record`
 {% tabs %}
 {% tab title="CameLIGO" %}
 ```ocaml
-type update_reverse_record_param = {
+type update_reverse_record_param = [@layout:comb] {
     address: address;
     name: bytes option;
     owner: address;
     data: (string, bytes) map;
 }
 
-| Update_reverse_record of update_reverse_record_param michelson_pair_left_comb
+| Update_reverse_record of update_reverse_record_param
 ```
 {% endtab %}
 

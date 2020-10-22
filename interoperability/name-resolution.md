@@ -11,6 +11,9 @@ Clients retrieve the current address of `NameRegistry` by reading it from the st
 {% tabs %}
 {% tab title="CameLIGO" %}
 ```ocaml
+(* data map with all possible types that can be stored with an entity *)
+type data_map = (string, bytes) map
+
 type record = {
     (* The optional address the record resolves to *)
     address: address option;
@@ -19,16 +22,15 @@ type record = {
     owner: address;
 
     (* A map of any additional data clients wish to store with the domain *)
-    data: (string, bytes) map;
+    data: data_map
 
     (* Validator contract reference used for validating names of new subrecords *)
     validator: nat option;
 
-    (* The computed level of this record *)
-    level: nat;
-
     (* Key to the expiry map containing the validity of this record *)
     expiry_key: bytes option
+
+    (* ... more fields outside of this interoperability spec *)
 }
 
 type reverse_record = {
@@ -39,7 +41,9 @@ type reverse_record = {
     owner: address;
 
     (* A map of any additional data clients wish to store with the record *)
-    data: (string, bytes) map;
+    data: data_map;
+    
+    (* ... more fields outside of this interoperability spec *)
 }
 
 type storage = {
@@ -54,49 +58,59 @@ type storage = {
 
     (* ... more fields outside of this interoperability spec *)
 }
+
+type main_storage = {
+    (* Inner storage of the contract *)
+    storage: storage;
+
+    (* ... more fields outside of this interoperability spec *)
+}
 ```
 {% endtab %}
 
 {% tab title="Michelson" %}
 ```text
 storage
-    (pair
+  (pair
+    (pair %store
+      (pair
+        (pair (big_map %data bytes bytes) (big_map %expiry_map bytes timestamp))
         (pair
-            (big_map %expiry_map bytes timestamp)
+          (address %owner)
+          (big_map %records bytes
             (pair
-                (big_map %records bytes
-                      (pair
-                            (pair
-                                  (pair (option %address address)
-                                        (map %data string bytes))
-                                  (pair (option %expiry_key bytes)
-                                          (nat %level))
-                            )
-                            (pair (address %owner)
-                                  (option %validator nat)
-                            )
-                      )
-                )
-                (big_map %reverse_records address
-                    (pair
-                        (pair (map %data string bytes)
-                              (option %name bytes)
-                        )
-                        (address %owner)
-                    )
-                )
+              (pair
+                (pair
+                  (option %address address)
+                  (map %data string bytes))
+                (pair
+                  (option %expiry_key bytes)
+                  (map %internal_data string bytes)))
+              (pair
+                (pair (nat %level) (address %owner))
+                (option %validator nat))
+              )
             )
         )
-        (
-            # ... more fields outside of this interoperability spec
-        )
-    );
+      )
+      (pair
+        (big_map %reverse_records address
+          (pair
+            (pair
+              (map %data string bytes)
+              (map %internal_data string bytes))
+            (pair (option %name bytes) (address %owner))))
+        (map %validators nat address))))
+    (
+        # ... more fields outside of this interoperability spec
+    )
+  );
 ```
 {% endtab %}
 {% endtabs %}
 
 {% hint style="warning" %}
-Clients **must not** rely on particular storage or record layout. They should always use annotations to find the correct value.
+Clients **must not** rely on a particular storage or record layout. They should always use annotations to find the correct value.
 {% endhint %}
 
 #### Forward Resolution \(name to address\)
@@ -126,7 +140,7 @@ Both on-chain and off-chain clients can do this by calling the `check_address` e
 {% tabs %}
 {% tab title="CameLIGO" %}
 ```ocaml
-type check_address_param = {
+type check_address_param = [@layout:comb] {
     (* UTF-8 encoded name *)
     name: bytes;
 
@@ -135,7 +149,7 @@ type check_address_param = {
 }
 
 (* Checks that a name corresponds to an address. *)
-| Check_address of check_address_param michelson_pair_left_comb
+| Check_address of check_address_param
 ```
 {% endtab %}
 
