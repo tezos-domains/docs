@@ -57,7 +57,7 @@ Tezos Domains data successfully retrieved.
 
 {% api-method-response-example httpCode=429 %}
 {% api-method-response-example-description %}
-You are hitting rate limits of Tezos Domains endpoint.
+You are hitting the rate limits of Tezos Domains endpoint.
 {% endapi-method-response-example-description %}
 
 ```
