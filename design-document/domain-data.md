@@ -18,7 +18,7 @@ map %data string bytes
 
 All entries have:
 
-* A **key** which should have a unique meaning. There is a set of reserved keys for typical use, but users are free to create new keys.
+* A **key** that should have a unique meaning. There is a set of reserved keys for typical use, but users are free to create new keys.
 * A **value** which must be represented in JSON \([RFC 8259](https://tools.ietf.org/html/rfc8259)\) and encoded in UTF-8.
 
 ## Reserved Keys
