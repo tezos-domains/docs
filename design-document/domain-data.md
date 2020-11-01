@@ -47,7 +47,7 @@ The prefix `openid:` is reserved for OpenID claims. The values have their respec
   <tbody>
     <tr>
       <td style="text-align:left">
-        <p><b>openid:*</b>
+        <p><b>openid:&lt;claim&gt;</b>
         </p>
         <p>(e.g. openid:name)</p>
       </td>
