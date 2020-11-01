@@ -33,7 +33,7 @@ All keys with the prefix `td:` are reserved for Tezos Domains-related metadata. 
 
 ### OpenID
 
-The prefix `openid:` is reserved for OpenID claims. The values have their respective meaning according to the [OpenID spec](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The value types specified in the spec must be adhered to.
+The prefix `openid:` is reserved for OpenID claims. The values have their respective meanings according to the [OpenID spec](https://openid.net/specs/openid-connect-core-1_0.html#StandardClaims). The value types specified in the OpenID spec must be adhered to.
 
 <table>
   <thead>
