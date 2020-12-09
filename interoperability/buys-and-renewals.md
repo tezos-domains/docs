@@ -8,7 +8,7 @@ Entrypoint: `commit`
 
 | Parameter Type | Description |
 | :--- | :--- |
-| `bytes` | SHA-512 hash of a packed tuple of **label** and **owner** corresponding to the intended buy \(see [TLDRegistrar.Buy](buys-and-renewals.md#contract-tldregistrar-buy)\). |
+| `bytes` | SHA-512 hash of a packed tuple of **label**, **owner**, ****and a **random nonce** corresponding to the intended buy \(see [TLDRegistrar.Buy](buys-and-renewals.md#contract-tldregistrar-buy)\). The hashed tuple is of the Michelson type`pair (pair bytes address) nat`. Having a random nonce prevents commitment hashes to be susceptible to a dictionary attack. |
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
@@ -47,6 +47,7 @@ Entrypoint: `buy`
 | **owner** | `address` | The new owner of the given domain. |
 | **address** | `address option` | The optional address the given domain resolves to. |
 | **data** | `(string, bytes) map` | A map of any additional data clients wish to store with the given domain. |
+| **nonce** | `nat` | The chosen commitment nonce. |
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
@@ -57,6 +58,7 @@ type buy_param = {
     owner: address;
     address: address option;
     data: (string, bytes) map;
+    nonce: nat;
 }
 
 | Buy of buy_param michelson_pair_left_comb
@@ -66,13 +68,11 @@ type buy_param = {
 {% tab title="Michelson" %}
 ```
 parameter (or
-  (pair %buy
-    (pair
-      (pair
-        (pair (bytes %label) (nat %duration))
-        (address %owner))
-      (address option %address))
-    (map %data string bytes))
+  (pair %buy (bytes %label)
+    (pair (nat %duration)
+      (pair (address %owner)
+        (pair (option %address address)
+          (pair (map %data string bytes) (nat %nonce))))))
   # ... more entrypoints outside of this interoperability spec
 );
 ```

@@ -68,12 +68,7 @@ type claim_reverse_record_param = [@layout:comb] {
 
 {% tab title="Michelson" %}
 ```text
-parameter (or
-  (pair %claim_reverse_record
-    (pair (option %name bytes) (address %owner))
-    (map %data string bytes))
-  # ... more entrypoints outside of this interoperability spec
-);
+TBD
 ```
 {% endtab %}
 {% endtabs %}
@@ -116,16 +111,7 @@ type set_child_record_param = [@layout:comb] {
 
 {% tab title="Michelson" %}
 ```text
-parameter (or
-  (pair %set_child_record
-    (pair
-      (pair
-        (pair (pair (bytes %label) (bytes %parent)) (option %address address))
-        (address %owner))
-      (map %data string bytes))
-    (option %expiry timestamp))
-  # ... more entrypoints outside of this interoperability spec
-);
+TBD
 ```
 {% endtab %}
 {% endtabs %}
@@ -166,12 +152,7 @@ type update_record_param = [@layout:comb] {
 
 {% tab title="Michelson" %}
 ```text
-parameter (or
-  (pair %update_record
-    (pair (pair (bytes %name) (option %address address)) (address %owner))
-    (map %data string bytes))
-  # ... more entrypoints outside of this interoperability spec
-);
+TBD
 ```
 {% endtab %}
 {% endtabs %}
@@ -211,12 +192,7 @@ type update_reverse_record_param = [@layout:comb] {
 
 {% tab title="Michelson" %}
 ```text
-parameter (or
-  (pair %update_reverse_record
-    (pair (pair (address %address) (option %name bytes)) (address %owner))
-    (map %data string bytes)));
-  # ... more entrypoints outside of this interoperability spec
-);
+TBD
 ```
 {% endtab %}
 {% endtabs %}
