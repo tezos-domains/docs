@@ -8,7 +8,7 @@ Entrypoint: `commit`
 
 | Parameter Type | Description |
 | :--- | :--- |
-| `bytes` | SHA-512 hash of a packed tuple of **label**, **owner**, ****and a **random nonce** corresponding to the intended buy \(see [TLDRegistrar.Buy](buys-and-renewals.md#contract-tldregistrar-buy)\). The hashed tuple is of the Michelson type`pair (pair bytes address) nat`. Having a random nonce prevents commitment hashes to be susceptible to a dictionary attack. |
+| `bytes` | SHA-512 hash of a packed tuple of **label**, **owner**, ****and a **random nonce** corresponding to the intended buy \(see [TLDRegistrar.Buy](buys-and-renewals.md#contract-tldregistrar-buy)\). The hashed tuple is of the Michelson type`pair (pair bytes address) nat`. Having a random nonce prevents susceptibility to dictionary attacks. |
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
