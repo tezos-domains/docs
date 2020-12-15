@@ -63,9 +63,9 @@ The prefix `openid:` is reserved for OpenID claims. The values have their respec
 
 ### Gravatar
 
-To provide an avatar representing their account, Gravatar users can equip their Tezos Domain with the MD5 hash of their Gravatar e-mail.
+To provide an avatar representing their account, [Gravatar](https://gravatar.com/) users can equip their Tezos Domain with the MD5 hash of their Gravatar e-mail.
 
 | Key | Meaning | Type | Example |
 | :--- | :--- | :--- | :--- |
-| **gravatar:hash** | The MD5 hash of the user's e-mail on Gravatar in hexadecimal format. | string | `"0bc83cb571cd1c50ba6f3e8a78ef1346"` |
+| **gravatar:hash** | The [MD5 hash of the user's e-mail](https://en.gravatar.com/site/implement/hash/) on Gravatar in hexadecimal format. | string | `"0bc83cb571cd1c50ba6f3e8a78ef1346"` |
 
