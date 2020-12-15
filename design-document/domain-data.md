@@ -67,5 +67,5 @@ To provide an avatar representing their account, Gravatar users can equip their 
 
 | Key | Meaning | Type | Example |
 | :--- | :--- | :--- | :--- |
-| **gravatar:hash** | The MD5 hash of the user's e-mail on Gravatar. | string | `"0bc83cb571cd1c50ba6f3e8a78ef1346"` |
+| **gravatar:hash** | The MD5 hash of the user's e-mail on Gravatar in hexadecimal format. | string | `"0bc83cb571cd1c50ba6f3e8a78ef1346"` |
 
