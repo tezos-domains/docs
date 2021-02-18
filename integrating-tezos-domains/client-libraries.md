@@ -1,9 +1,9 @@
 # Client Libraries
 
-We built a set of client libraries on top of [Taquito](https://tezostaquito.io/) to help wallets and other services integrate with Tezos Domains. To learn more and get started check out the [API documentation](https://client-docs.tezos.domains/).
+We built a set of client libraries on top of help wallets and other services integrate with Tezos Domains. You can choose to use either [Taquito](https://tezostaquito.io/) or [ConseilJS](https://cryptonomic.github.io/ConseilJS) to power the client, depending on what you are already using. To learn more and get started check out the [API documentation](https://client-docs.tezos.domains/) and [example repository](https://gitlab.com/tezos-domains/examples).
 
 {% hint style="info" %}
-The packages are written in Typescript. If you are using a different language or don't want to use Taquito, you will need to write your own integration logic.
+The packages are written in Typescript. If you are using a different language, you will need to write your own integration logic.
 {% endhint %}
 
 On a higher level, we split the functionality into multiple packages.
@@ -14,7 +14,9 @@ This part can resolve domain names to addresses and also the other way around by
 
 ### Manager
 
-With this you can execute operations that register or update domains, create subdomains, claim or update reverse records and more.
+With this, you can execute operations that register or update domains, create subdomains, claim or update reverse records, interact with auctions, and more.
 
-We are using this library in our dApp for all interaction with Smart Contracts to ensure it's functional and up to date. If you encounter any issues or have an idea for a new feature or improvement, feel free to create an [issue for us](https://gitlab.com/tezos-domains/client/issues).
+_\(manager functions are not yet supported in ConseilJS implementation\)_
+
+We are using this library in our dApp for all interactions with Smart Contracts to ensure it's functional and up to date. If you encounter any issues or have an idea for a new feature or improvement, feel free to create an [issue for us](https://gitlab.com/tezos-domains/client/issues).
 
