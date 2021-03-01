@@ -2,7 +2,7 @@
 
 To ensure future upgradeability while allowing clients to rely on fixed contract addresses, we offer a set of proxy contracts. Any contract or off-chain client can interact with them directly - the transactions are automatically routed to the correct destination.
 
-You can find the addresses of the proxy contracts in the [Deployed Contracts](../deployed-contracts/carthagenet.md) section.
+You can find the addresses of the proxy contracts in the [Deployed Contracts]() section.
 
 ## Finding the Underlying Contract
 
