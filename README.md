@@ -26,7 +26,7 @@ An example of one such alias is `alice.tez`. Alice bought it from the central re
 
 ## Older articles
 
-You can read our series on Designing a Name Service on Agora which explains some of the design decisions taken:
+You can read our series on Designing a Name Service on the Tezos Agora which explains some of the design decisions taken:
 
 * [Tezos Domains Alpha Release](https://forum.tezosagora.org/t/tezos-domains-developer-preview/2057)
 * [Introducing Tezos Domains](https://forum.tezosagora.org/t/introducing-tezos-domains/1985)
