@@ -1,6 +1,6 @@
-# Carthagenet
+# Edonet
 
-{% api-method method="post" host="https://carthagenet-api.tezos.domains" path="/graphql" %}
+{% api-method method="post" host="https://edonet-api.tezos.domains" path="/graphql" %}
 {% api-method-summary %}
 GraphQL
 {% endapi-method-summary %}
@@ -70,9 +70,7 @@ Content: API calls quota exceeded! maximum admitted 100 per 1m.
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% hint style="info" %}
-Example of the GraphQL query object
-{% endhint %}
+#### Example of a GraphQL query object:
 
 ```text
 {
