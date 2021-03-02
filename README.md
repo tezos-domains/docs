@@ -24,9 +24,9 @@ A parallel that's often drawn is to the [DNS](https://en.wikipedia.org/wiki/Doma
 
 An example of one such alias is `alice.tez`. Alice bought it from the central registrar managing `tez` and then assigned it the address of her personal wallet. When she sends money to Bob, he will see `alice.tez` in his wallet's received transactions, because Alice has also set up a reverse record mapping her address back to `alice.tez`.
 
-## Older articles explaining some design decisions
+## Older articles
 
-You can read our series on Designing a Name Service on Agora:
+You can read our series on Designing a Name Service on Agora which explains some of the design decisions taken:
 
 * [Tezos Domains Alpha Release](https://forum.tezosagora.org/t/tezos-domains-developer-preview/2057)
 * [Introducing Tezos Domains](https://forum.tezosagora.org/t/introducing-tezos-domains/1985)
