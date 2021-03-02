@@ -19,7 +19,7 @@ Upgradeability is achieved by having:
 
 Proxy contracts provide a fixed interface that will always keep working under the same address and will be kept forward-compatible. A proxy contract can also be repointed to a new underlying contract in case of a major upgrade that requires the storage to be migrated.
 
-To optimize for gas cost, we keep only one entrypoint per proxy contract. All proxy contracts are prefixed by the name of its underlying contract \(e.g. `NameRegistry.CheckAddress` is the proxy contract that contains the `check_address` entrypoint and uses `NameRegistry` as the underlying contract\). The usage of proxy contracts by clients is further detailed in the [Interoperability](../interoperability/name-resolution.md) chapter.
+To optimize for gas cost, we keep only one entrypoint per proxy contract. Every proxy contract is prefixed by the name of its underlying contract \(e.g. `NameRegistry.CheckAddress` is the proxy contract that contains the `check_address` entrypoint and uses `NameRegistry` as the underlying contract\). The usage of proxy contracts by clients is further detailed in the [Interoperability](../interoperability/name-resolution.md) chapter.
 
 ### Underlying Contracts
 
@@ -41,7 +41,7 @@ Forward records \(or just records\) represent all domains in the system, indexed
 
 Supported **operations** on records are:
 
-* resolving a name and returning the resolved address via callback,
+* resolving a name and returning the resolved address \(implemented as a view\),
 * updating records,
 * creating new sub-records.
 
@@ -54,15 +54,9 @@ Reverse records represent mapping of addresses to their names. Reverse records a
 
 Supported **operations** on reverse records are:
 
-* resolving an address and returning the resolved name via callback,
-* claiming records for the sender \(and removing the previous owner\),
+* resolving an address and returning the resolved name \(implemented as a view\),
+* claiming records for the sender and replacing the previous owner,
 * updating records.
-
-## Label Validators
-
-These smart contracts validate labels according to the [IDNA](https://en.wikipedia.org/wiki/Internationalized_domain_name) rules and the specific rules for the respective top-level domain. They provide a `validate` entry-point accepting a label. The entry-point fails the transaction if the label is not valid or if the `bytes` contain an invalid UTF-8 string. See the [Interoperability](../interoperability/name-resolution.md) chapter for more information about normalization and validation.
-
-Label validators are not upgradeable by themselves. Upgradeability can be achieved by simply repointing `NameRegistry` to a new validator address.
 
 ## TLDRegistrar
 
