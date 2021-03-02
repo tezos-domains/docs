@@ -51,7 +51,6 @@ Entrypoint: `claim_reverse_record`
 | :--- | :--- | :--- |
 | **name** | `bytes` | The UTF-8 encoded name to claim. |
 | **owner** | `address` | The owner of the record allowed to make changes. |
-| **data** | `(string, bytes) map` | The map of any additional data that clients wish to store with the record. |
 
 {% tabs %}
 {% tab title="CameLIGO" %}
@@ -81,6 +80,8 @@ TBD
 ### Contract: NameRegistry.SetChildRecord
 
 Creates or overwrites an existing domain record. The current **sender** must be the owner of the **parent** record.
+
+If there was an existing corresponding reverse record referencing this domain and the address of this domain changed, the reverse record's name will be updated to `None` to preserve consistency.
 
 Entrypoint: `set_child_record`
 
@@ -126,6 +127,8 @@ TBD
 ### Contract: NameRegistry.UpdateRecord
 
 Updates an existing domain record. The current **sender** must be its owner.
+
+If there was an existing corresponding reverse record referencing this domain and the address of this domain changed, the reverse record's name will be updated to `None` to preserve consistency.
 
 Entrypoint: `update_record`
 
@@ -174,7 +177,6 @@ Entrypoint: `claim_reverse_record`
 | **address** | `address` | The address of the reverse record to update. |
 | **name** | `bytes option` | The new UTF-8 encoded name the record resolves to. |
 | **owner** | `address` | The owner of the record allowed to make changes. |
-| **data** | `(string, bytes) map` | The map of any additional data that clients wish to store with the record. |
 
 {% tabs %}
 {% tab title="CameLIGO" %}
