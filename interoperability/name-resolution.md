@@ -4,9 +4,60 @@
 
 The `NameRegistry` contract provides forward and reverse resolution.
 
-### Instructions for Off-chain Clients
+Clients retrieve the current address of `NameRegistry` by reading it from the storage of the proxy contract [NameRegistry.CheckAddress](domain-operations.md#contract-nameregistry-checkaddress) \(as explained in the [Proxy Contracts](proxy-contracts.md#finding-the-underlying-contract) chapter\).
 
-Clients retrieve the current address of `NameRegistry` by reading it from the storage of the proxy contract [NameRegistry.CheckAddress](domain-operations.md#contract-nameregistry-checkaddress) \(as explained in the [Proxy Contracts](proxy-contracts.md#finding-the-underlying-contract) chapter\). The `NameRegistry` contract has the following storage structure:
+### Resolution by off-chain clients with view support \(recommended\)
+
+Clients that have the ability to invoke [TZIP-16](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-16/tzip-16.md) views should use the following views to resolve names and addresses.
+
+#### View: resolve-name
+
+Resolves a name to an address, and optionally other data. If no such record exists or it has expired, it returns `None`.
+
+Before passing a name for resolution, it should first be normalized using the [encode algorithm](name-resolution.md#name-validation-and-normalization).
+
+| Parameter Type | Description |
+| :--- | :--- |
+| `bytes` | The UTF-8 encoded name to resolve. |
+
+#### View: resolve-address
+
+Resolves an address to a name. If no such record exists or it has expired, it returns `None`.
+
+| Parameter Type | Description |
+| :--- | :--- |
+| `address` | The address to resolve. |
+
+#### **Return type**
+
+This is the return type for both `resolve-name` and `resolve-address`.
+
+{% tabs %}
+{% tab title="CamelLIGO" %}
+```ocaml
+type resolved_domain = [@layout:comb] {
+    // The name of the resolved domain
+    name: bytes;
+
+    // The address of the resolved domain, if any
+    address: address option;
+
+    // A map of any additional data users wish to store with the domain
+    data: data_map;
+
+    // The expiration date of the domain, if any
+    // (the domain is only valid until this time)
+    expiry: timestamp option;
+}
+
+type return_type = resolved_domain option;
+```
+{% endtab %}
+{% endtabs %}
+
+### Instructions for Off-chain Clients lacking view support
+
+Clients that lack TZIP-16 view support can read from the contract storage directly. The `NameRegistry` contract has the following storage structure:
 
 {% tabs %}
 {% tab title="CameLIGO" %}
