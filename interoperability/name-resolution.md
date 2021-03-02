@@ -30,7 +30,7 @@ Resolves an address to a name, optionally [other domain data](../design-document
 
 #### **Return type**
 
-This is the return type for both `resolve-name` and `resolve-address`.
+The return type for both `resolve-name` and `resolve-address` is as follows:
 
 {% tabs %}
 {% tab title="CamelLIGO" %}
