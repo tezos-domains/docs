@@ -14,6 +14,7 @@
 * [Proxy Contracts](interoperability/proxy-contracts.md)
 * [Name Resolution](interoperability/name-resolution.md)
 * [Buys & Renewals](interoperability/buys-and-renewals.md)
+* [Auction Operations](interoperability/auction-operations.md)
 * [Domain Operations](interoperability/domain-operations.md)
 * [.tez TLD](interoperability/.tez-tld.md)
 
@@ -27,8 +28,4 @@
 * [Client Libraries](integrating-tezos-domains/client-libraries.md)
 * [GraphQL](integrating-tezos-domains/graphql/README.md)
   * [Edonet](integrating-tezos-domains/graphql/carthagenet-endpoint.md)
-
-## Guides & Tutorials
-
-* [FAQ](guides-and-tutorials/faq.md)
 

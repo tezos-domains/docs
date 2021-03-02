@@ -123,6 +123,9 @@ TBD
 | PARENT\_NOT\_FOUND | There is no record for the specified **parent** domain. |
 | NOT\_AUTHORIZED | The current **sender** is not the current record owner. |
 | INVALID\_LABEL | The given **label** is not valid. See [Label Validation](.tez-tld.md#label-validation-for-tez). |
+| LABEL\_EMPTY | The given label is empty. |
+| LABEL\_TOO\_LONG | The label is too long. |
+| NAME\_TOO\_LONG | The name \(label + parent\) is too long. |
 
 ### Contract: NameRegistry.UpdateRecord
 

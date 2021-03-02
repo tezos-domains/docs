@@ -88,6 +88,9 @@ parameter (or
 | LABEL\_NOT\_AVAILABLE | The requested **label** is currently not available for registration. |
 | LABEL\_IN\_AUCTION | The requested **label** is currently only available in auction. |
 | INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-operations.md#label-validation). |
+| LABEL\_EMPTY | The given label is empty. |
+| LABEL\_TOO\_LONG | The label is too long. |
+| NAME\_TOO\_LONG | The name \(label + parent\) is too long. |
 | DURATION\_TOO\_LOW | The requested **duration** is too low \(lower than the configured minimum\). |
 | AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
 | AMOUNT\_TOO\_HIGH | The transferred **amount** is higher than the actual price. |
