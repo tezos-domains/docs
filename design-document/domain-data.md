@@ -1,6 +1,6 @@
 # Domain Data
 
-All **records** and **reverse records** allow for storing arbitrary information in the "data" map:
+All **records** allow for storing arbitrary information in the "data" map:
 
 {% tabs %}
 {% tab title="CameLIGO" %}
@@ -29,7 +29,7 @@ All keys with the prefix `td:` are reserved for Tezos Domains-related metadata. 
 
 | Key | Meaning | Type | Example |
 | :--- | :--- | :--- | :--- |
-| **td:ttl** | The time-to-live of the record \(in seconds\). If defined, it specifies the maximum time the record should be stored in caches and other secondary-storage mechanisms. | number | `600` |
+| **td:ttl** | The time-to-live of the record and an associated reverse record, if any \(in seconds\). If defined, it specifies the maximum time the record should be stored in caches and other secondary-storage mechanisms. | number | `600` |
 
 ### OpenID
 
