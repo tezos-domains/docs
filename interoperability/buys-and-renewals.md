@@ -31,8 +31,8 @@ parameter (or
 
 | Error | Description |
 | :--- | :--- |
-| TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
 | AMOUNT\_NOT\_ZERO | The transferred **amount** of _tez_ is not zero. |
+| COMMITMENT\_EXISTS | The given commitment exists. A commitment with a new nonce has to be generated. |
 
 ### Contract: TLDRegistrar.Buy
 
@@ -81,11 +81,12 @@ parameter (or
 
 | Error | Description |
 | :--- | :--- |
-| TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
 | COMMITMENT\_DOES\_NOT\_EXIST | Corresponding commitment \(see [TLDRegistrar.Commit](buys-and-renewals.md#contract-tldregistrar-commit)\) was not created before. |
 | COMMITMENT\_TOO\_OLD | The commitment is too old \(older than configured age\). Try recreating it again. |
 | COMMITMENT\_TOO\_RECENT | The commitment is too recent \(younger than configured age\). Wait for some time. |
-| LABEL\_NOT\_AVAILABLE | The requested **label** already exists and it is not expired. |
+| LABEL\_TAKEN | The requested **label** already exists and it is not expired. |
+| LABEL\_NOT\_AVAILABLE | The requested **label** is currently not available for registration. |
+| LABEL\_IN\_AUCTION | The requested **label** is currently only available in auction. |
 | INVALID\_LABEL | The given **label** is not valid. See [Label Validation](domain-operations.md#label-validation). |
 | DURATION\_TOO\_LOW | The requested **duration** is too low \(lower than the configured minimum\). |
 | AMOUNT\_TOO\_LOW | The transferred **amount** is lower than the actual price. |
@@ -128,7 +129,6 @@ parameter (or
 
 | Error | Description |
 | :--- | :--- |
-| TLD\_REGISTRAR\_DISABLED | This TLD registrar is disabled in its config. |
 | LABEL\_NOT\_FOUND | The requested **label** does not exist. |
 | LABEL\_EXPIRED | The requested **label** exists but it is expired. Therefore it can be bought, not renewed. |
 | DURATION\_TOO\_LOW | The specified **duration** is too low \(lower than the configured minimum\). |

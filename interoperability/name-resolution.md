@@ -8,11 +8,11 @@ Clients retrieve the current address of `NameRegistry` by reading it from the st
 
 ### Resolution by off-chain clients with view support \(recommended\)
 
-Clients that have the ability to invoke [TZIP-16](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-16/tzip-16.md) views should use the following views to resolve names and addresses.
+Clients that have the ability to invoke [TZIP-16](https://gitlab.com/tzip/tzip/-/blob/master/proposals/tzip-16/tzip-16.md) views should use the following to resolve names and addresses.
 
 #### View: resolve-name
 
-Resolves a name to an address, and optionally other data. If no such record exists or it has expired, it returns `None`.
+Resolves a name to an address, optionally [other domain data](../design-document/domain-data.md), and the expiry information for reference. If no such record exists or it has expired, it returns `None`.
 
 Before passing a name for resolution, it should first be normalized using the [encode algorithm](name-resolution.md#name-validation-and-normalization).
 
@@ -22,7 +22,7 @@ Before passing a name for resolution, it should first be normalized using the [e
 
 #### View: resolve-address
 
-Resolves an address to a name. If no such record exists or it has expired, it returns `None`.
+Resolves an address to a name, optionally [other domain data](../design-document/domain-data.md), and the expiry information for reference. If no such record exists or it has expired, it returns `None`.
 
 | Parameter Type | Description |
 | :--- | :--- |
@@ -45,8 +45,8 @@ type resolved_domain = [@layout:comb] {
     // A map of any additional data users wish to store with the domain
     data: data_map;
 
-    // The expiration date of the domain, if any
-    // (the domain is only valid until this time)
+    // The expiration date of the domain, if any.
+    // It is already
     expiry: timestamp option;
 }
 
