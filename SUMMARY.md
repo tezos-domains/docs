@@ -17,6 +17,7 @@
 * [Auction Operations](interoperability/auction-operations.md)
 * [Domain Operations](interoperability/domain-operations.md)
 * [.tez TLD](interoperability/.tez-tld.md)
+* [Domains as NFTs](interoperability/domains-as-nfts.md)
 
 ## Deployed Contracts
 
