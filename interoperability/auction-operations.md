@@ -29,15 +29,6 @@ type bid_param = [@layout:comb] {
 | Bid of bid_param
 ```
 {% endtab %}
-
-{% tab title="Michelson" %}
-```
-parameter (or
-  (bytes %commit)
-  # ... more entrypoints outside of this interoperability spec
-);
-```
-{% endtab %}
 {% endtabs %}
 
 | Error | Description |
@@ -80,19 +71,6 @@ type settle_param = [@layout:comb] {
 | Settle of settle_param
 ```
 {% endtab %}
-
-{% tab title="Michelson" %}
-```
-parameter (or
-  (pair %buy (bytes %label)
-    (pair (nat %duration)
-      (pair (address %owner)
-        (pair (option %address address)
-          (pair (map %data string bytes) (nat %nonce))))))
-  # ... more entrypoints outside of this interoperability spec
-);
-```
-{% endtab %}
 {% endtabs %}
 
 | Error | Description |
@@ -119,17 +97,6 @@ Entrypoint: `withdraw`
 type withdraw_param = address
 
 | Widthdraw of withdraw_param
-```
-{% endtab %}
-
-{% tab title="Michelson" %}
-```
-parameter (or
-  (pair %renew
-    (bytes %label)
-    (nat %duration))
-  # ... more entrypoints outside of this interoperability spec
-);
 ```
 {% endtab %}
 {% endtabs %}
