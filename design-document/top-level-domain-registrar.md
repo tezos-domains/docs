@@ -44,7 +44,7 @@ There are several numeric parameters stored to configure this contract in the `c
 
 * `0 = max_commitment_age` is the maximum time for a buy commitment to be valid \(in seconds\)
 * `1 = min_commitment_age` is the minimum time for a buy commitment to be valid \(in seconds\)
-* `2 = standard_price_per_day` is the standard FIFS price for a day and the minimum amount that participants have to bid initially in auction \(in mutez\)
+* `2 = standard_price_per_day` is the standard FIFS price for a day and the minimum amount that participants have to bid initially in auction \(in picotezos = 1e-12 tez\)
 * `3 = min_duration` is the minimum period anyone can register or renew a domain for \(in seconds\)
 * `4 = min_bid_increase_ratio` is the minimum ratio of a new bid to the current highest bid \(in percent\)
 * `5 = min_auction_period` is the minimum auction period \(in seconds\)
