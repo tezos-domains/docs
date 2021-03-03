@@ -12,7 +12,7 @@ Clients that have the ability to invoke [TZIP-16](https://gitlab.com/tzip/tzip/-
 
 #### View: resolve-name
 
-Resolves a name to an address, optionally [other domain data](../design-document/domain-data.md), and the expiry information for reference. If no such record exists or it has expired, it returns `None`.
+Resolves a name to an address, optionally [other domain data](../design-document/domain-data.md), and expiry information for reference. If no such record exists or it has expired, it returns `None`.
 
 Before passing a name for resolution, it should first be normalized using the [encode algorithm](name-resolution.md#name-validation-and-normalization).
 
@@ -22,7 +22,7 @@ Before passing a name for resolution, it should first be normalized using the [e
 
 #### View: resolve-address
 
-Resolves an address to a name, optionally [other domain data](../design-document/domain-data.md), and the expiry information for reference. If no such record exists or it has expired, it returns `None`.
+Resolves an address to a name, optionally [other domain data](../design-document/domain-data.md), and expiry information for reference. If no such record exists or it has expired, it returns `None`.
 
 | Parameter Type | Description |
 | :--- | :--- |
