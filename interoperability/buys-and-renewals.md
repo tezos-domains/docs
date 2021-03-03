@@ -40,6 +40,8 @@ Buys a second-level domain based on previous commitment \(see [TLDRegistrar.Comm
 
 Entrypoint: `buy`
 
+The amount sent with this call has to be equal to the price of the domain. The price in mutez is calculated as `standard_price_per_day * duration / 1000000`.
+
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
 | **label** | `bytes` | The UTF-8 encoded label of the second-level domain to buy. |
@@ -100,6 +102,8 @@ parameter (or
 Renews second-level domain for requested duration.
 
 Entrypoint: `renew`
+
+The amount sent with this call has to be equal to the price of the domain. The price in mutez is calculated as `standard_price_per_day * duration / 1000000`.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
