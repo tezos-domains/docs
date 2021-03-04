@@ -37,7 +37,6 @@ Forward records \(or just records\) represent all domains in the system, indexed
 * **Resolution address**, the optional `address` the name resolves to.
 * **Additional data**, a map with any additional data clients wish to store with the domain.
 * **Expiry reference**, a reference inside the expiry map, which contains timestamps for every second-level domain. This timestamp represents a point in time when the domain ceases to be valid.
-* **Label validator reference** representing a contract used for validating labels of new subrecords.
 
 Supported **operations** on records are:
 
