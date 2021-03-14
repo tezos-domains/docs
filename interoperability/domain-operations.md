@@ -64,12 +64,6 @@ type claim_reverse_record_param = [@layout:comb] {
 | Claim_reverse_record of claim_reverse_record_param
 ```
 {% endtab %}
-
-{% tab title="Michelson" %}
-```text
-TBD
-```
-{% endtab %}
 {% endtabs %}
 
 | Error | Description |
@@ -107,12 +101,6 @@ type set_child_record_param = [@layout:comb] {
 }
 
 | Set_child_record of set_child_record_param
-```
-{% endtab %}
-
-{% tab title="Michelson" %}
-```text
-TBD
 ```
 {% endtab %}
 {% endtabs %}
@@ -155,12 +143,6 @@ type update_record_param = [@layout:comb] {
 | Update_record of update_record_param
 ```
 {% endtab %}
-
-{% tab title="Michelson" %}
-```text
-TBD
-```
-{% endtab %}
 {% endtabs %}
 
 | Error | Description |
@@ -192,12 +174,6 @@ type update_reverse_record_param = [@layout:comb] {
 }
 
 | Update_reverse_record of update_reverse_record_param
-```
-{% endtab %}
-
-{% tab title="Michelson" %}
-```text
-TBD
 ```
 {% endtab %}
 {% endtabs %}
