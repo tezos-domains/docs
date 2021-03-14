@@ -118,46 +118,6 @@ type main_storage = {
 }
 ```
 {% endtab %}
-
-{% tab title="Michelson" %}
-```text
-storage
-  (pair
-    (pair %store
-      (pair
-        (pair (big_map %data bytes bytes) (big_map %expiry_map bytes timestamp))
-        (pair
-          (address %owner)
-          (big_map %records bytes
-            (pair
-              (pair
-                (pair
-                  (option %address address)
-                  (map %data string bytes))
-                (pair
-                  (option %expiry_key bytes)
-                  (map %internal_data string bytes)))
-              (pair
-                (pair (nat %level) (address %owner))
-                (option %validator nat))
-              )
-            )
-        )
-      )
-      (pair
-        (big_map %reverse_records address
-          (pair
-            (pair
-              (map %data string bytes)
-              (map %internal_data string bytes))
-            (pair (option %name bytes) (address %owner))))
-        (map %validators nat address))))
-    (
-        # ... more fields outside of this interoperability spec
-    )
-  );
-```
-{% endtab %}
 {% endtabs %}
 
 {% hint style="warning" %}
