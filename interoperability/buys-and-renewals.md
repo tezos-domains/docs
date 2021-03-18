@@ -4,7 +4,7 @@
 
 Creates a commitment to buy a second-level domain without disclosing the actual name. This is implemented according to our [commit&reveal](https://en.wikipedia.org/wiki/Commitment_scheme) scheme.
 
-Entrypoint: `commit`
+**Entrypoint**: `commit`
 
 | Parameter Type | Description |
 | :--- | :--- |
@@ -38,9 +38,9 @@ parameter (or
 
 Buys a second-level domain based on previous commitment \(see [TLDRegistrar.Commit](buys-and-renewals.md#contract-tldregistrar-commit)\).
 
-Entrypoint: `buy`
+**Entrypoint**: `buy`
 
-The amount sent with this call has to be equal to the price of the domain. The price in mutez is calculated as `standard_price_per_day * duration / 1000000`.
+**Amount restriction**: The amount sent with this call has to be equal to the price of the domain. The price in mutez is calculated as `standard_price_per_day * duration / 1000000`.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -101,9 +101,9 @@ parameter (or
 
 Renews second-level domain for requested duration.
 
-Entrypoint: `renew`
+**Entrypoint**: `renew`
 
-The amount sent with this call has to be equal to the price of the domain. The price in mutez is calculated as `standard_price_per_day * duration / 1000000`.
+**Amount restriction**: The amount sent with this call has to be equal to the price of the domain. The price in mutez is calculated as `standard_price_per_day * duration / 1000000`.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |

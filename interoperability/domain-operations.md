@@ -4,7 +4,7 @@
 
 Checks that there is a valid domain record with the specified **name** and the **address**.
 
-Entrypoint: `check_address`
+**Entrypoint**: `check_address`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -45,7 +45,7 @@ parameter (or
 
 Claims a reverse record corresponding to a domain \(a forward record\). The claimed reverse record will map the **sender**'s address to the specified domain **name**.
 
-Entrypoint: `claim_reverse_record`
+**Entrypoint**: `claim_reverse_record`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -77,7 +77,7 @@ Creates or overwrites an existing domain record. The current **sender** must be 
 
 If there was an existing corresponding reverse record referencing this domain and the address of this domain changed, the reverse record's name will be updated to `None` to preserve consistency.
 
-Entrypoint: `set_child_record`
+**Entrypoint**: `set_child_record`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -121,7 +121,7 @@ Updates an existing domain record. The current **sender** must be its owner.
 
 If there was an existing corresponding reverse record referencing this domain and the address of this domain changed, the reverse record's name will be updated to `None` to preserve consistency.
 
-Entrypoint: `update_record`
+**Entrypoint**: `update_record`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -155,7 +155,7 @@ type update_record_param = [@layout:comb] {
 
 Updates an existing reverse record. The current **sender** must be its owner. There must be a corresponding domain record.
 
-Entrypoint: `claim_reverse_record`
+**Entrypoint**: `claim_reverse_record`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |

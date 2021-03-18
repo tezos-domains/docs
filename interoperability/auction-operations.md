@@ -6,12 +6,13 @@ Places a new highest bid on a domain that is currently [in auction](../design-do
 
 Additionally:
 
-* If there is a previous highest bid, it is replaced and its amount is credited to the previous highest bidder. 
+* If there is a previous highest bid, it is replaced and its amount is credited to the previous highest bidder.
+* Any excess amount sent with the bid is credited to the sender.
 * If the current auction end is lower than `NOW + bid_additional_period`, it is updated to `NOW + bid_additional_period`.
 
-Entrypoint: `bid`
+**Entrypoint**: `bid`
 
-The amount sent in this transaction plus the in-contract balance of the sender has to be higher or equal to the bid amount.
+**Amount restriction**: The amount sent in this transaction plus the in-contract balance of the sender has to be higher or equal to the bid amount.
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -49,7 +50,7 @@ Settles an auction that has ended. Removes the auction record and assigns the do
 
 The settlement period must not be expired, i.e. this call will only succeed during the period of `min_duration` days after an auction end.
 
-Entrypoint: `settle`
+**Entrypoint**: `settle`
 
 | Parameter | Type | Description |
 | :--- | :--- | :--- |
@@ -85,7 +86,7 @@ type settle_param = [@layout:comb] {
 
 Makes a withdrawal of the caller's full in-contract balance. If the caller has no in-contract balance, the operation does nothing.
 
-Entrypoint: `withdraw`
+**Entrypoint**: `withdraw`
 
 | Type | Description |
 | :--- | :--- |
