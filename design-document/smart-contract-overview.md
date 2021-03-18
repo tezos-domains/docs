@@ -33,7 +33,7 @@ An upgradeable contract that stores the actual domain records.
 
 Forward records \(or just records\) represent all domains in the system, indexed by their name. There is an implied hierarchy of domains - ownership of a domain allows you to create or replace sub-domains. For every domain, the following information is stored:
 
-* **Owner** \(`address`\) is an account authorized to make changes in the record and manage subdomains of the given domain.
+* **Owner** \(`address`\) is an account authorized to make changes to the record and manage subdomains of the given domain.
 * **Resolution address**, the optional `address` the name resolves to.
 * **Additional data**, a map with any additional data clients wish to store with the domain.
 * **Expiry reference**, a reference inside the expiry map, which contains timestamps for every second-level domain. This timestamp represents a point in time when the domain ceases to be valid.
@@ -48,7 +48,7 @@ Supported **operations** on records are:
 
 Reverse records represent mapping of addresses to their names. Reverse records are optional, but if a reverse record exists for a given address, its name \(if it has one\) must resolve back to that address - consistency is guaranteed on-chain. For every address, the following information is stored:
 
-* **Owner** \(`address`\) is an account authorized to make changes in the record.
+* **Owner** \(`address`\) is an account authorized to make changes to the record.
 * **Name** is the optional name this reverse record resolves to.
 
 Supported **operations** on reverse records are:
