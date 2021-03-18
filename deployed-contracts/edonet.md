@@ -4,7 +4,7 @@ description: Addresses of deployed Smart Contracts
 
 # Edonet
 
-These contracts are deployed on Edonet and correspond to the testing dApp instance available at [edonet.tezos.domains](https://edonet.tezos.domains).
+These contracts are deployed on Edonet and correspond to the [Edonet dApp instance](https://edonet.tezos.domains).
 
 | Contract | Address | BCD |
 | :--- | :--- | :--- |
