@@ -8,7 +8,7 @@ At service launch, every domain is offered to users through auction first. The r
 
 ### Bids
 
-Any account can submit a bid during an active auction and transfer associated funds along in the same transaction. If a bid is higher or equal to the current highest bid multiplied by [min\_bid\_increase\_ratio](top-level-domain-registrar.md#configuration), it becomes the new highest bid and the previous highest bid becomes refundable or available for future bids \(on the same or a different domain\). Otherwise, the transaction fails. The auction ends after [bid\_additional\_period](top-level-domain-registrar.md#configuration) seconds since the last bid, but not earlier than [min\_auction\_period](top-level-domain-registrar.md#configuration) since the auction's start.
+Any account can submit a bid during an active auction and transfer associated funds along in the same transaction. If a bid is higher or equal to the current highest bid multiplied by \(100% + [min\_bid\_increase\_ratio](top-level-domain-registrar.md#configuration)%\), it becomes the new highest bid and the previous highest bid becomes refundable or available for future bids \(on the same or a different domain\). Otherwise, the transaction fails. The auction ends after [bid\_additional\_period](top-level-domain-registrar.md#configuration) seconds since the last bid, but not earlier than [min\_auction\_period](top-level-domain-registrar.md#configuration) since the auction's start.
 
 A special case is the first bid, which has to be greater or equal to [standard\_price\_per\_day](top-level-domain-registrar.md#configuration). When a previously unregistered domain name is first bid on, the name is pre-registered in the name registry to ensure its validity.
 
