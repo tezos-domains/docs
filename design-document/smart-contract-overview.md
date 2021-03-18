@@ -46,10 +46,10 @@ Supported **operations** on records are:
 
 ### Reverse Records
 
-Reverse records represent mapping of addresses to their names. Reverse records are optional, but if a reverse record exists for a given address, the name has to resolve back to that address \(consistency is guaranteed on-chain\). For every address, the following information is stored:
+Reverse records represent mapping of addresses to their names. Reverse records are optional, but if a reverse record exists for a given address, its name \(if it has one\) must resolve back to that address - consistency is guaranteed on-chain. For every address, the following information is stored:
 
 * **Owner** \(`address`\) is an account authorized to make changes in the record.
-* **Name** is the name this reverse record resolves to.
+* **Name** is the optional name this reverse record resolves to.
 
 Supported **operations** on reverse records are:
 
