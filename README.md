@@ -1,16 +1,4 @@
----
-description: >-
-  Introducing Tezos Domains, human-readable names for cryptocurrency addresses
-  on Tezos network.
----
-
 # Introduction
-
-## Motivation
-
-Using addresses can become an obstacle for the practical use of Tezos as a currency. It’s clear that a string like `tz1VSUr8wwNhLAzempoch5d6hLRiTh8Cjcjb` is usable when transferred by a computer program or using the operating system’s clipboard, but it is unwieldy in most other types of communication. It cannot be memorized or even realistically communicated through human speech or visual media.
-
-People are already used to creating names for their e-mail boxes, Instagram accounts, or their web pages. This project is providing them with this familiar approach inside the Tezos ecosystem.
 
 ## What are Tezos Domains?
 
@@ -23,6 +11,12 @@ A parallel that's often drawn is to the [DNS](https://en.wikipedia.org/wiki/Doma
 > The Domain Name System \(DNS\) is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It associates various information with domain names assigned to each of the participating entities.
 
 An example of one such alias is `alice.tez`. Alice bought it from the central registrar managing `tez` and then assigned it the address of her personal wallet. When she sends money to Bob, he will see `alice.tez` in his wallet's received transactions, because Alice has also set up a reverse record mapping her address back to `alice.tez`.
+
+## Motivation
+
+Using addresses can become an obstacle for the practical use of Tezos as a currency. It’s clear that a string like `tz1VSUr8wwNhLAzempoch5d6hLRiTh8Cjcjb` is usable when transferred by a computer program or using the operating system’s clipboard, but it is unwieldy in most other types of communication. It cannot be memorized or even realistically communicated through human speech or visual media.
+
+People are already used to creating names for their e-mail boxes, Instagram accounts, or their web pages. This project is providing them with this familiar approach inside the Tezos ecosystem.
 
 ## Older articles
 
