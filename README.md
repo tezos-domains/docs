@@ -2,7 +2,7 @@
 
 ## What are Tezos Domains?
 
-[Tezos Domains](https://tezos.domains) is a distributed, open and extensible naming system using Tezos blockchain.
+[Tezos Domains](https://tezos.domains) is a distributed, open and extensible naming system using Tezos blockchain. 
 
 The main function is to translate a meaningful and user-friendly alias to a Tezos address and vice versa. This translation is globally consistent so that all participants on the blockchain see the same address for a given alias.
 
