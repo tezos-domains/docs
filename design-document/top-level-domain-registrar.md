@@ -26,6 +26,10 @@ For FIFS registration, the contract implements a commit & reveal scheme to avoid
 
 Owners of domains can renew their domains at any time up until the domain expires. The chosen renewal period has to be greater or equal to [min\_duration](top-level-domain-registrar.md#configuration). Renewals are priced using [standard\_price\_per\_day](top-level-domain-registrar.md#configuration).
 
+## Proceeds
+
+Proceeds from Tezos Domains registrations and auctions are currently being accumulated in the smart contract. Only the [administrative multisig](ownership-overview.md#administrative-multisig) can transfer funds stored in the contract. To learn more about the future plans for Tezos Domains proceeds, please [visit our website](https://tezos.domains/about/proceeds).
+
 ## Top-level Domain List
 
 The susceptibility to spoofing attacks using look-alike characters is reduced by limiting TLDs to predefined character scripts. Neither whole-script and mixed-script [confusable](https://www.unicode.org/reports/tr39/#Confusable_Detection) names can be created under one TLD.

@@ -10,7 +10,7 @@ The ownership scheme in the name registry is as follows \(from top to bottom\):
 
 ## Administrative Multisig
 
-This is a formally verified multisig contract with keys held by well-known community members. It's needed for administrative actions like:
+A [formally verified](https://arxiv.org/pdf/1909.08671.pdf) multisig contract with keys held by well-known community members is the owner of all Tezos Domains contracts. This allows for administrative actions like:
 
 * creating new top-level domains,
 * updating the [TLD configuration](top-level-domain-registrar.md#configuration),
