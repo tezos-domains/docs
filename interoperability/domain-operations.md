@@ -58,7 +58,6 @@ Claims a reverse record corresponding to a domain \(a forward record\). The clai
 type claim_reverse_record_param = [@layout:comb] {
     name: bytes option;
     owner: address;
-    data: (string, bytes) map;
 }
 
 | Claim_reverse_record of claim_reverse_record_param
@@ -170,7 +169,6 @@ type update_reverse_record_param = [@layout:comb] {
     address: address;
     name: bytes option;
     owner: address;
-    data: (string, bytes) map;
 }
 
 | Update_reverse_record of update_reverse_record_param
