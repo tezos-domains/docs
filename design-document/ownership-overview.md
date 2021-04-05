@@ -16,3 +16,5 @@ This is a formally verified multisig contract with keys held by well-known commu
 * updating the [TLD configuration](top-level-domain-registrar.md#configuration),
 * deploying new versions of contracts if a critical vulnerability is found.
 
+Further details about the current multisig configuration are available [on our website](https://tezos.domains/about/keyholders).
+
