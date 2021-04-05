@@ -31,12 +31,13 @@ An upgradeable contract that stores the actual domain records.
 
 ### Forward Records
 
-Forward records \(or just records\) represent all domains in the system, indexed by their name. There is an implied hierarchy of domains - ownership of a domain allows you to create or replace sub-domains. For every domain, the following information is stored:
+Forward records \(or just records\) represent all domains in the system, indexed by their name. There is an implied hierarchy of domains - ownership of a domain allows you to create or replace sub-domains. For every domain, the following information is stored \(implementation-specific fields are omitted\):
 
 * **Owner** \(`address`\) is an account authorized to make changes to the record and manage subdomains of the given domain.
 * **Resolution address**, the optional `address` the name resolves to.
 * **Additional data**, a map with any additional data clients wish to store with the domain.
 * **Expiry reference**, a reference inside the expiry map, which contains timestamps for every second-level domain. This timestamp represents a point in time when the domain ceases to be valid.
+* **TZIP-12 token ID** that identifies 2nd-level domains when used as [NFTs](../interoperability/domains-as-nfts.md). Domains that are not 2nd-level don't have a token ID.
 
 Supported **operations** on records are:
 
