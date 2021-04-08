@@ -21,6 +21,8 @@
 
 ## Deployed Contracts
 
+* [Mainnet](deployed-contracts/mainnet.md)
+* [Florencenet](deployed-contracts/florencenet.md)
 * [Edonet](deployed-contracts/edonet.md)
 * [Delphinet](deployed-contracts/delphinet.md)
 
