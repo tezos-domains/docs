@@ -2,8 +2,6 @@
 
 These contracts are deployed on Edonet and correspond to the [Florencenet dApp instance](https://florencenet.tezos.domains/).
 
-TBD
-
 | Contract | Address | BCD |
 | :--- | :--- | :--- |
 | **NameRegistry.CheckAddress** | `KT1PCx2zUqbaCtg8UcyHn31cMD9yaMHLvL6N` | [🔗](https://better-call.dev/florencenet/KT1PCx2zUqbaCtg8UcyHn31cMD9yaMHLvL6N) |

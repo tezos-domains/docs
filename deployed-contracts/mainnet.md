@@ -1,8 +1,6 @@
 # Mainnet
 
-These contracts are deployed on Mainnet.
-
-TBD
+The following table contains all contract addresses for Mainnet:
 
 | Contract | Address | BCD |
 | :--- | :--- | :--- |
