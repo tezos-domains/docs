@@ -1,14 +1,12 @@
 # Client Libraries
 
-We built a set of client libraries on top of help wallets and other services integrate with Tezos Domains. You can choose to use either [Taquito](https://tezostaquito.io/) or [ConseilJS](https://cryptonomic.github.io/ConseilJS) to power the client, depending on what you are already using. To learn more and get started check out the [API documentation](https://client-docs.tezos.domains/) and [example repository](https://gitlab.com/tezos-domains/examples).
-
-{% hint style="info" %}
-The packages are written in Typescript. If you are using a different language, you will need to write your own integration logic.
-{% endhint %}
+We built a set of client libraries for Javascript/Typescript to help with integrating Tezos Domains. You can choose to use either [Taquito](https://tezostaquito.io/) or [ConseilJS](https://cryptonomic.github.io/ConseilJS) to power the client, depending on what you are already using. To learn more and get started check out the [API documentation](https://client-docs.tezos.domains/) and [example repository](https://gitlab.com/tezos-domains/examples).
 
 We are using this library in our own dApp for all interactions with Smart Contracts to ensure it's functional and up to date. If you encounter any issues or have an idea for a new feature or improvement, feel free to create an [issue for us](https://gitlab.com/tezos-domains/client/issues).
 
-On a higher level, we split the functionality into multiple packages:
+## Packages
+
+The functionality is split into two separate packages according to your particular use case:
 
 ### Resolver
 

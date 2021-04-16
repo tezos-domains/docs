@@ -2,6 +2,12 @@
 
 * [Introduction](README.md)
 
+## Integrating Tezos Domains
+
+* [Client Libraries](integrating-tezos-domains/client-libraries.md)
+* [GraphQL](integrating-tezos-domains/graphql/README.md)
+  * [Edonet](integrating-tezos-domains/graphql/carthagenet-endpoint.md)
+
 ## Smart Contract Design <a id="design-document"></a>
 
 * [Smart Contract Overview](design-document/smart-contract-overview.md)
@@ -25,10 +31,4 @@
 * [Florencenet](deployed-contracts/florencenet.md)
 * [Edonet](deployed-contracts/edonet.md)
 * [Delphinet](deployed-contracts/delphinet.md)
-
-## Integrating Tezos Domains
-
-* [Client Libraries](integrating-tezos-domains/client-libraries.md)
-* [GraphQL](integrating-tezos-domains/graphql/README.md)
-  * [Edonet](integrating-tezos-domains/graphql/carthagenet-endpoint.md)
 
