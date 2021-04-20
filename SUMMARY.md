@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Introduction](README.md)
+* [Audit by Quantstamp](https://certificate.quantstamp.com/full/tezos-domains)
 
 ## Integrating Tezos Domains
 
