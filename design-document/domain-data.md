@@ -69,3 +69,24 @@ To provide an avatar representing their account, [Gravatar](https://gravatar.com
 | :--- | :--- | :--- | :--- |
 | **gravatar:hash** | The [MD5 hash of the user's e-mail](https://en.gravatar.com/site/implement/hash/) on Gravatar in hexadecimal format. | string | `"0bc83cb571cd1c50ba6f3e8a78ef1346"` |
 
+### Social media
+
+| Key | Meaning | Type | Example |
+| :--- | :--- | :--- | :--- |
+| **twitter:handle** | The associated Twitter handle of the domain. | string | `"BillGates"` |
+| **instagram:handle** | The associated Instagram handle of the domain. | string | `"nasa"` |
+
+### Developer accounts
+
+| Key | Meaning | Type | Example |
+| :--- | :--- | :--- | :--- |
+| **github:username** | User's GitHub account name. | string | `"torvalds"` |
+| **gitlab:username** | User's GitLab account name. | string | `"foobar"` |
+| **keybase:username** | User's Keybase account name. | string | `"foobar"` |
+
+### Source control
+
+| Key | Meaning | Type | Example |
+| :--- | :--- | :--- | :--- |
+| **project:repository\_url** | Project's Git repository. | string | `"https://gitlab.com/tezos-domains/contracts.git"` |
+
